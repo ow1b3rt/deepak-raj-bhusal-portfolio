@@ -25,14 +25,14 @@ export function Footer() {
   return (
     <footer
       id="connect"
-      className="relative w-full bg-story bg-no-repeat bg-cover px-4 pb-4 sm:px-6 sm:pb-6 lg:px-8 lg:pb-8"
+      className="relative w-full bg-story bg-cover bg-no-repeat px-4 pb-4 sm:px-6 sm:pb-6 lg:px-8 lg:pb-8"
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: easeOut }}
-        className="relative mx-auto container overflow-hidden rounded-3xl px-6 py-16 text-center sm:px-10 sm:py-20 md:py-24 lg:rounded-[2.5rem] lg:px-16 lg:py-32"
+        className="relative container mx-auto overflow-hidden rounded-3xl px-6 py-16 text-center sm:px-10 sm:py-20 md:py-24 lg:rounded-[2.5rem] lg:px-16 lg:py-32"
       >
         <div
           aria-hidden
@@ -40,7 +40,6 @@ export function Footer() {
         />
 
         <div className="relative mx-auto flex max-w-6xl flex-col items-center">
-          {/* ── Eyebrow ── */}
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -56,12 +55,11 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
-            className="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+            className="mt-4 text-4xl leading-[1.05] font-extrabold tracking-tight text-primary-foreground drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
           >
             {title}
           </motion.h2>
 
-   
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
