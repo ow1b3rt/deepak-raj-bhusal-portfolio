@@ -4,6 +4,7 @@ import "./globals.css"
 import { cn } from "@/lib/utils"
 import SmoothScroll from "@/components/molecules/SmoothScroll"
 import { Navbar } from "@/components/molecules/Navbar"
+import { Footer } from "@/components/molecules/Footer"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Navbar />
           <main>{children}</main>
+          <Footer />
         </SmoothScroll>
       </body>
     </html>
