@@ -108,7 +108,7 @@ export function Hero() {
           className="order-1 md:order-2"
         >
           <div className="relative overflow-hidden rounded-xl">
-            <div className="relative aspect-4/5 max-h-180 w-full overflow-hidden sm:aspect-5/6">
+            <div className="relative aspect-4/5 max-h-176 w-full overflow-hidden sm:aspect-5/6">
               <Image
                 src={image.src}
                 alt={image.alt}
