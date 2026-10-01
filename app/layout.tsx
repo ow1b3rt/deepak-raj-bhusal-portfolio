@@ -25,7 +25,7 @@ export default function RootLayout({
         fontMono.variable
       )}
     >
-      <body>
+      <body className="bg-[radial-gradient(ellipse_at_top_right,rgba(246,67,73,0.14)_0%,rgba(246,67,73,0.06)_35%,transparent_70%)]">
         <SmoothScroll>
           <Navbar />
           <main>{children}</main>

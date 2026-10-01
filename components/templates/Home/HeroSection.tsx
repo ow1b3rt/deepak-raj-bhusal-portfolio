@@ -45,7 +45,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative container mx-auto w-full bg-background px-4"
+      className="relative container mx-auto w-full bg-transparent px-4"
     >
       <div className="mx-auto grid grid-cols-1 items-center gap-10 py-16 md:grid-cols-2 md:gap-14 md:py-18 lg:gap-16 lg:px-0">
         <div className="order-2 md:order-1">
@@ -119,7 +119,7 @@ export function Hero() {
               />
             </div>
 
-            <div className="bg-background px-5 py-4 text-center text-xl font-bold text-foreground sm:px-6 sm:py-5 lg:text-4xl">
+            <div className="rounded-t-xl bg-background px-5 py-4 text-center text-xl font-bold text-foreground sm:px-6 sm:py-5 lg:text-4xl">
               {caption.prefix}
               <span className="text-chart-3">{caption.highlight}</span>
             </div>
