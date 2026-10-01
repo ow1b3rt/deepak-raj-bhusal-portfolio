@@ -113,7 +113,7 @@ export function Navbar() {
                     type="button"
                     onClick={() => scrollToSection(link.id)}
                     className={cn(
-                      "cursor-pointer rounded-full px-3 py-1.5 text-sm font-semibold transition-colors lg:px-4 lg:text-base",
+                      "cursor-pointer rounded-full px-3 py-1.5 text-sm font-semibold transition-colors lg:px-4 lg:text-base xl:text-xl",
                       active
                         ? "text-primary"
                         : "text-foreground/80 hover:text-foreground"
@@ -154,7 +154,7 @@ export function Navbar() {
                     type="button"
                     onClick={() => scrollToSection(link.id)}
                     className={cn(
-                      "cursor-pointer rounded-full px-3 py-1.5 text-sm font-semibold transition-colors lg:px-4 lg:text-base",
+                      "cursor-pointer rounded-full px-3 py-1.5 text-sm font-semibold transition-colors lg:px-4 lg:text-base xl:text-xl",
                       active
                         ? "text-primary"
                         : "text-foreground/80 hover:text-foreground"
@@ -172,7 +172,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => scrollToSection("connect")}
-            className="block cursor-pointer rounded-xl bg-chart-3 px-5 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-chart-3/90 lg:px-7 lg:py-2.5 lg:text-base"
+            className="block cursor-pointer rounded-xl bg-chart-3 px-5 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-chart-3/90 lg:px-7 xl:text-xl lg:py-2.5 lg:text-base"
           >
             Connect
           </button>

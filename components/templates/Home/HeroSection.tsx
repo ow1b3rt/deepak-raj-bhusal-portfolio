@@ -47,7 +47,7 @@ export function Hero() {
       id="home"
       className="relative container mx-auto w-full bg-background px-4"
     >
-      <div className="mx-auto grid grid-cols-1 items-center gap-10 py-16 md:grid-cols-2 md:gap-14 md:py-20 lg:gap-16 lg:px-0">
+      <div className="mx-auto grid grid-cols-1 items-center gap-10 py-16 md:grid-cols-2 md:gap-14 md:py-18 lg:gap-16 lg:px-0">
         <div className="order-2 md:order-1">
           <motion.p
             variants={fadeUp}
