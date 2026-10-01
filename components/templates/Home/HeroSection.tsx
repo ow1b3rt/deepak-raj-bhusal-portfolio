@@ -30,7 +30,7 @@ const heroData = {
     href: "/story",
   },
   image: {
-    src: "/images/person/hero.jpg",
+    src: "/images/person/hero-img.png",
     alt: "Deepak Raj Bhusal",
   },
   caption: {
@@ -107,15 +107,15 @@ export function Hero() {
           transition={{ duration: 1, ease: easeOut }}
           className="order-1 md:order-2"
         >
-          <div className="relative overflow-hidden rounded-xl bg-muted shadow-xl ring-1 ring-border">
-            <div className="relative aspect-4/5 max-h-180 w-full sm:aspect-5/6">
+          <div className="relative overflow-hidden rounded-xl">
+            <div className="relative aspect-4/5 max-h-180 w-full overflow-hidden sm:aspect-5/6">
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="rotate-1 object-cover object-top"
               />
             </div>
 
