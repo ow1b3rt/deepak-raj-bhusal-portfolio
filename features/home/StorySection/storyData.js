@@ -1,17 +1,16 @@
-
-export const storyData = {
-  title: "Short Story",
+const storyData = {
+  title: "From a Small Village to a Purposeful Journey",
   paragraphs: [
-    "Lorem ipsum dolor sit amet consectetur. Congue convallis cras vivamus odio cursus. Suspendisse scelerisque sit morbi semper cum fringilla. Tellus tristique sed adipiscing egestas amet mattis. Vel dui id erat imperdiet faucibus cras elementum sem tristique. Nunc nec diam urna tellus ornare consectetur sed feugiat nibh. Libero interdum bibendum sagittis tempor mattis.",
-    "Arcu morbi turpis pharetra ipsum mi arcu congue orci. Massa diam at imperdiet id ornare sed. Urna urna diam lacus turpis sed vitae massa vestibulum blandit. Aenean mauris eget sed enim dui egestas. Venenatis ut ut blandit lorem ac interdum lorem. Facilisis a commodo magna egestas. Volutpat viverra ultrices nisl arcu a imperdiet urna. Bibendum vel tempor purus gravida diam consectetur. Venenatis hac quis nisl in fringilla fermentum. Vitae mus phasellus amet congue. Velit mus etiam odio id posuere posuere ut.",
-    "Bibendum vel tempor purus gravida diam consectetur. Venenatis hac quis nisl in fringilla fermentum. Vitae mus phasellus amet congue. Velit mus etiam odio id posuere posuere ut.",
+    "Starting from a small village in Nepal, Deepak Raj Bhusal built his journey through hard work, continuous learning, and a commitment to meaningful progress. His academic background in zoology and information technology, complemented by professional training and international workshops, has shaped his work in business and social service.",
+    "His entrepreneurial journey spans education, travel, technology, hospitality, and vocational training. Since 2009, he has served as Executive Chairman of Enlighten International Education and Enlighten Travels and Tours. His wider leadership responsibilities include roles in colleges, early childhood education, corporate ventures, and skills development.",
+    "Alongside business, Deepak has remained involved in professional associations and community organisations. From leadership roles at ECAN to youth clubs, Jaycees, and Lions Club, his journey reflects a commitment to social welfare, human rights, and equality. He continues to pursue growth through learning, participation, and service.",
   ],
   image: {
     src: "/images/person/hero.jpg",
     alt: "Deepak Raj Bhusal in office",
   },
   badge: {
-    value: "20+",
-    label: "Experience",
+    value: "Since 2009",
+    label: "Business Leadership",
   },
 }
