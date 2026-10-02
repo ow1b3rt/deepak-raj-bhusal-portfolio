@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import SmoothScroll from "@/components/molecules/SmoothScroll"
 import { Navbar } from "@/components/molecules/Navbar"
 import { Footer } from "@/components/molecules/Footer"
+import GlowCard from "@/components/molecules/GlowCard"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -25,7 +26,8 @@ export default function RootLayout({
         fontMono.variable
       )}
     >
-      <body className="bg-[radial-gradient(ellipse_at_top_right,rgba(246,67,73,0.14)_0%,rgba(246,67,73,0.06)_35%,transparent_70%)]">
+      <body className="relative min-h-dvh">
+        <GlowCard />
         <SmoothScroll>
           <Navbar />
           <main>{children}</main>

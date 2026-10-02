@@ -23,8 +23,8 @@ const navLinks = [
   { label: "Story", id: "story" },
   { label: "Ventures", id: "ventures" },
   { label: "Impact", id: "impact" },
-  { label: "Insights", id: "insights" },
   { label: "Media", id: "media" },
+  { label: "Insights", id: "insights" },
 ]
 
 const LEFT_LINKS = navLinks.slice(0, 3)
