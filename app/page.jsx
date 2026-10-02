@@ -1,6 +1,12 @@
-import { 
-  Hero, Impact, Media, ProofPoints, Story, FeaturedVentures,
-  InsightsSection
+import {
+  Hero,
+  Impact,
+  Media,
+  ProofPoints,
+  Story,
+  FeaturedVentures,
+  InsightsSection,
+  Timeline,
 } from "@/features/home"
 
 import { insights } from "@/data/insights"
@@ -13,6 +19,7 @@ export default function Page() {
       <ProofPoints />
       <FeaturedVentures />
       <Impact />
+      <Timeline />
       <Media />
       <InsightsSection
         heading="Insights"

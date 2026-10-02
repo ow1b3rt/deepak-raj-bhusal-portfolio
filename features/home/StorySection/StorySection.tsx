@@ -15,7 +15,6 @@ const fadeUp = {
   }),
 }
 
-
 export function Story() {
   const { title, paragraphs, image, badge } = storyData
 

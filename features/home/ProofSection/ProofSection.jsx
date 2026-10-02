@@ -7,16 +7,9 @@ import { ProofPointsData } from "./ProofPointsData"
 
 import { cn } from "@/lib/utils"
 
-const easeOut = [0.22, 1, 0.36, 1] as const
+const easeOut = [0.22, 1, 0.36, 1]
 
-
-function IconTile({
-  variant,
-  side,
-}: {
-  variant: "dark" | "primary"
-  side: "left" | "right"
-}) {
+function IconTile({ variant, side }) {
   return (
     <div
       className={cn(
@@ -31,17 +24,7 @@ function IconTile({
   )
 }
 
-function FeatureItem({
-  text,
-  variant,
-  side,
-  delay,
-}: {
-  text: string
-  variant: "dark" | "primary"
-  side: "left" | "right"
-  delay: number
-}) {
+function FeatureItem({ text, variant, side, delay }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: side === "left" ? -32 : 32 }}

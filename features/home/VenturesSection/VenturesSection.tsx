@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils"
 
 const easeOut = [0.22, 1, 0.36, 1] as const
 
-
 type Venture = (typeof featuredVenturesData.items)[number]
 
 function VentureItem({

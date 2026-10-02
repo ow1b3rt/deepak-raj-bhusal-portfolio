@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "motion/react"
-import { heroData } from './heroData'
+import { heroData } from "./heroData"
 
 const easeOut = [0.22, 1, 0.36, 1] as const
 
@@ -16,7 +16,6 @@ const fadeUp = {
     transition: { duration: 1, delay: i * 0.08, ease: easeOut },
   }),
 }
-
 
 export function Hero() {
   const { eyebrow, headline, description, cta, image, caption } = heroData
