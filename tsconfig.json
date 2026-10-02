@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "components/templates/Home/MediaSection.jsx", "components/templates/Home/InsightsSection.jsx"  ],
+, "components/templates/Home/MediaSection.jsx", "components/templates/Home/InsightsSection.jsx", "app/page.jsx"  ],
   "exclude": ["node_modules"]
 }
