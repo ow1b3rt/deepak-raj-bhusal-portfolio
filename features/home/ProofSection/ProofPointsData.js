@@ -1,5 +1,4 @@
-
-export const ProofPointsData = {
+const ProofPointsData = {
   image: {
     src: "/images/person/ventures.png",
     alt: "Deepak Raj Bhusal",
@@ -8,38 +7,38 @@ export const ProofPointsData = {
     {
       side: "left",
       position: "top",
-      text: "Lorem ipsum dolor sit amet consectetur. Dolor tincidunt sit",
+      text: "Business leadership spanning education, travel, technology, and hospitality",
       variant: "dark",
     },
     {
       side: "right",
       position: "top",
-      text: "Lorem ipsum dolor sit amet consectetur. Dolor tincidunt sit et eget bibendum a",
+      text: "Executive Chairman of Enlighten International Education and Enlighten Travels and Tours since 2009",
       variant: "dark",
     },
     {
       side: "left",
       position: "middle",
-      text: "Lorem ipsum dolor sit amet consectetur. Dolor tincidunt sit",
+      text: "Master’s degrees in Zoology and Information Technology",
       variant: "primary",
     },
     {
       side: "right",
       position: "middle",
-      text: "Lorem ipsum dolor sit amet consectetur. Dolor tincidunt sit et eget bibendum a",
+      text: "Served two terms as ECAN General Secretary from 2019 to 2025",
       variant: "primary",
     },
     {
       side: "left",
       position: "bottom",
-      text: "Lorem ipsum dolor sit amet consectetur. Dolor tincidunt sit",
+      text: "Community leadership through youth clubs, Jaycees, and Lions Club",
       variant: "dark",
     },
     {
       side: "right",
       position: "bottom",
-      text: "Lorem ipsum dolor sit amet consectetur. Dolor tincidunt sit et eget bibendum a",
+      text: "International workshops and conferences across Asia, Europe, and the Middle East",
       variant: "dark",
     },
   ],
-} 
+}
