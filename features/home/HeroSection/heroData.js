@@ -1,4 +1,4 @@
-const heroData = {
+export const heroData = {
   eyebrow: "Deepak Raj Bhusal",
   headline: {
     line1: "BUILDING OPPORTUNITIES,",
