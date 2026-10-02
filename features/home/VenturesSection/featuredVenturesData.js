@@ -1,4 +1,4 @@
-const featuredVenturesData = {
+export const featuredVenturesData = {
   title: {
     prefix: "Featured ",
     highlight: "Ventures",
