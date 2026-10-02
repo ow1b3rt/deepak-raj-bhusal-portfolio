@@ -51,7 +51,7 @@ export default function FeatureSplit({
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: false, amount: 0.25 }}
         variants={container}
         className="relative mx-auto flex w-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-white text-card-foreground shadow-[0_1px_0_0_rgba(0,0,0,0.02),0_20px_60px_-30px_rgba(0,0,0,0.15)] lg:max-h-200 2xl:max-h-240"
       >

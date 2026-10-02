@@ -80,7 +80,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     <motion.div
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: easeOut }}
       className="group"
     >
@@ -147,7 +147,7 @@ export function Impact() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: false, margin: "-80px" }}
             transition={{ duration: 0.6, ease: easeOut }}
             className="lg:sticky lg:top-28 lg:self-start"
           >

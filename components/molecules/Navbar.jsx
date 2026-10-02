@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Menu } from "lucide-react"
 import { motion } from "motion/react"
 import { useLenis } from "lenis/react"
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa6"
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa6"
 
 import { cn } from "@/lib/utils"
 
@@ -23,8 +23,8 @@ const navLinks = [
   { label: "Story", id: "story" },
   { label: "Ventures", id: "ventures" },
   { label: "Impact", id: "impact" },
-  { label: "Media", id: "media" },
   { label: "Insights", id: "insights" },
+  { label: "Media", id: "media" },
 ]
 
 const LEFT_LINKS = navLinks.slice(0, 3)
@@ -34,6 +34,7 @@ const socials = [
   { label: "Facebook", href: "https://facebook.com", Icon: FaFacebookF },
   { label: "LinkedIn", href: "https://linkedin.com", Icon: FaLinkedinIn },
   { label: "Instagram", href: "https://instagram.com", Icon: FaInstagram },
+  { label: "Twitter", href: "https://twitter.com", Icon: FaTwitter },
 ]
 
 export function Navbar() {

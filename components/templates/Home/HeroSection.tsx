@@ -28,6 +28,7 @@ const heroData = {
   cta: {
     label: "Explore My Journey",
     href: "/story",
+    targetId: "story",
   },
   image: {
     src: "/images/person/hero-img.png",
@@ -41,6 +42,15 @@ const heroData = {
 
 export function Hero() {
   const { eyebrow, headline, description, cta, image, caption } = heroData
+
+  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (typeof document === "undefined") return
+    const el = document.getElementById(cta.targetId)
+    if (!el) return
+    e.preventDefault()
+    el.scrollIntoView({ behavior: "smooth", block: "start" })
+    window.history.pushState(null, "", cta.href)
+  }
 
   return (
     <section
@@ -91,6 +101,7 @@ export function Hero() {
           >
             <Link
               href={cta.href}
+              onClick={handleCtaClick}
               className="group inline-flex items-center gap-2 rounded-xl bg-chart-3 px-5 py-2 text-base font-semibold text-primary-foreground md:text-xl lg:px-6 lg:py-4"
             >
               <span>{cta.label}</span>

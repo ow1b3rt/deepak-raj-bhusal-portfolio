@@ -30,7 +30,7 @@ export function Footer() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{ once: false, margin: "-80px" }}
         transition={{ duration: 0.8, ease: easeOut }}
         className="relative container mx-auto overflow-hidden rounded-3xl px-6 py-16 text-center sm:px-10 sm:py-20 md:py-24 lg:rounded-[2.5rem] lg:px-16 lg:py-32"
       >
@@ -43,7 +43,7 @@ export function Footer() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: false, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.1, ease: easeOut }}
             className="text-xs font-bold tracking-[0.2em] text-primary-foreground/90 sm:text-sm lg:text-xl"
           >
@@ -53,7 +53,7 @@ export function Footer() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: false, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
             className="mt-4 text-4xl leading-[1.05] font-extrabold tracking-tight text-primary-foreground drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
           >
@@ -63,7 +63,7 @@ export function Footer() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: false, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.35, ease: easeOut }}
             className="mt-6 max-w-4xl text-sm leading-relaxed text-primary-foreground/85 sm:text-base lg:text-xl"
           >
@@ -73,7 +73,7 @@ export function Footer() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: false, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.5, ease: easeOut }}
             className="mt-12 sm:mt-14 lg:mt-16"
           >

@@ -86,7 +86,7 @@ function VentureItem({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: false, margin: "-60px" }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: easeOut }}
       className={cn(
         "overflow-hidden rounded-2xl border border-chart-3/60 bg-background transition-colors",
@@ -201,7 +201,7 @@ export function FeaturedVentures() {
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.6, ease: easeOut }}
           className="text-center text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
         >

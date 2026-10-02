@@ -43,7 +43,7 @@ export function Story() {
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.7, ease: easeOut }}
           className="py-2 sm:py-6 md:py-10 lg:py-12 xl:py-14"
         >
@@ -64,7 +64,7 @@ export function Story() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: 0.3, ease: easeOut }}
                 className="absolute right-2 bottom-6 flex flex-col items-center justify-center rounded-2xl border-8 border-destructive bg-background px-4 py-3 shadow-xl sm:right-4 sm:px-5 sm:py-4 md:-right-4 md:bottom-10 lg:-right-8"
               >
@@ -82,7 +82,7 @@ export function Story() {
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, margin: "-80px" }}
+                viewport={{ once: false, margin: "-80px" }}
                 custom={0}
                 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
               >
@@ -96,7 +96,7 @@ export function Story() {
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, margin: "-80px" }}
+                    viewport={{ once: false, margin: "-80px" }}
                     custom={i + 1}
                     className="text-sm leading-relaxed sm:text-base lg:text-lg xl:text-xl"
                   >

@@ -66,7 +66,7 @@ function MediaCard({ item, index }) {
     <motion.div
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: easeOut }}
       className="group relative h-full"
     >
@@ -146,7 +146,7 @@ export function Media() {
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.6, ease: easeOut }}
           className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
         >

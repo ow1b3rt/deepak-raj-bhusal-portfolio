@@ -89,7 +89,7 @@ function FeatureItem({
     <motion.div
       initial={{ opacity: 0, x: side === "left" ? -32 : 32 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.6, delay, ease: easeOut }}
       className={cn(
         "flex items-center gap-3 sm:gap-4",
@@ -136,7 +136,7 @@ export function ProofPoints() {
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.8, ease: easeOut }}
             className="relative mx-auto w-60 lg:w-100 xl:w-180"
           >
@@ -170,7 +170,7 @@ export function ProofPoints() {
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.7, ease: easeOut }}
             className="relative w-48 sm:w-60"
           >
