@@ -18,6 +18,6 @@ export const heroData = {
   },
   caption: {
     prefix: "Executive Chairman of ",
-    highlight: "Enlighten International Education",
+    highlight: "Enlighten Group",
   },
 }
