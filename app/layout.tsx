@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/molecules/SmoothScroll"
 import { Navbar } from "@/components/molecules/Navbar"
 import { Footer } from "@/components/molecules/Footer"
 import GlowCard from "@/components/molecules/GlowCard"
+import { ScrollToTop } from "@/components/molecules/ScrollToTop"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <ScrollToTop />
         </SmoothScroll>
       </body>
     </html>
