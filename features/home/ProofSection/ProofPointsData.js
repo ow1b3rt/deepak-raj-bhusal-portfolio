@@ -1,4 +1,4 @@
-const ProofPointsData = {
+export const ProofPointsData = {
   image: {
     src: "/images/person/ventures.png",
     alt: "Deepak Raj Bhusal",
