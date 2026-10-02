@@ -1,4 +1,4 @@
-const storyData = {
+export const storyData = {
   title: "From a Small Village to a Purposeful Journey",
   paragraphs: [
     "Starting from a small village in Nepal, Deepak Raj Bhusal built his journey through hard work, continuous learning, and a commitment to meaningful progress. His academic background in zoology and information technology, complemented by professional training and international workshops, has shaped his work in business and social service.",
