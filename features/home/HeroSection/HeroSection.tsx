@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "motion/react"
+import { heroData } from './heroData'
 
 const easeOut = [0.22, 1, 0.36, 1] as const
 
@@ -16,29 +17,6 @@ const fadeUp = {
   }),
 }
 
-const heroData = {
-  eyebrow: "Deepak Raj Bhusal",
-  headline: {
-    line1: "BUILDING IDEAS,",
-    line2Prefix: "CREATING ",
-    line2Highlight: "IMPACT.",
-  },
-  description:
-    "A passionate professional committed to leadership, innovation, and meaningful contributions to society. With a focus on creating opportunities and driving positive change, Deepak Raj Bhusal continues to turn ideas into purposeful action.",
-  cta: {
-    label: "Explore My Journey",
-    href: "/story",
-    targetId: "story",
-  },
-  image: {
-    src: "/images/person/hero-img.png",
-    alt: "Deepak Raj Bhusal",
-  },
-  caption: {
-    prefix: "Chairman of ",
-    highlight: "Enlighten Group",
-  },
-}
 
 export function Hero() {
   const { eyebrow, headline, description, cta, image, caption } = heroData

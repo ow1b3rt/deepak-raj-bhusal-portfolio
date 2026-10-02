@@ -1,10 +1,7 @@
-import { Hero } from "@/components/templates/Home/HeroSection"
-import { Impact } from "@/components/templates/Home/ImpactSection"
-import InsightsSection from "@/components/templates/Home/InsightsSection"
-import { Media } from "@/components/templates/Home/MediaSection"
-import { ProofPoints } from "@/components/templates/Home/ProofSection"
-import { Story } from "@/components/templates/Home/StorySection"
-import { FeaturedVentures } from "@/components/templates/Home/VenturesSection"
+import { 
+  Hero, Impact, Media, ProofPoints, Story, FeaturedVentures,
+  InsightsSection
+} from "@/features/home"
 
 import { insights } from "@/data/insights"
 

@@ -1,9 +1,9 @@
 "use client"
 
 import { motion, useReducedMotion } from "motion/react"
-import InsightCard from "@/components/molecules/InsightCard"
+import InsightCard from "./InsightCard"
 
-export default function InsightsSection({
+export function InsightsSection({
   heading = "Insights",
   items = [],
   headingLevel = 2,

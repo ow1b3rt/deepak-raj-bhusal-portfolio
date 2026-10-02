@@ -1,0 +1,7 @@
+export * from "./HeroSection"
+export * from "./ImpactSection"
+export * from "./InsightsSection"
+export * from "./MediaSection"
+export * from "./ProofSection"
+export * from "./StorySection"
+export * from "./VenturesSection"
