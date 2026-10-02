@@ -8,21 +8,14 @@ export default function InsightsSection({
   items = [],
   headingLevel = 2,
   className = "",
-  itemGap = "gap-8 md:gap-12",
+  stickyTop = 96,
+  stickyStep = 8,
+  tailSpace = "60vh",
 }) {
   const reduce = useReducedMotion()
   const Heading = `h${Math.min(Math.max(headingLevel, 1), 6)}`
 
   if (!items.length) return null
-
-  const cardVariant = {
-    hidden: { opacity: 0, y: reduce ? 0 : 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    },
-  }
 
   return (
     <section
@@ -46,19 +39,21 @@ export default function InsightsSection({
       </div>
 
       <div className="container mx-auto w-full px-4 pb-16 sm:px-6 md:pb-24">
-        <div className={`mt-8 flex flex-col ${itemGap}`}>
+        <div className="mt-8 flex flex-col">
           {items.map((item, i) => (
-            <motion.div
+            <div
               key={item.id}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.2, margin: "-60px 0px" }}
-              variants={cardVariant}
-              transition={{ delay: reduce ? 0 : i * 0.05 }}
+              style={{
+                position: "sticky",
+                top: stickyTop + i * stickyStep,
+                zIndex: i + 1,
+              }}
+              className="mb-6 md:mb-8"
             >
               <InsightCard {...item} />
-            </motion.div>
+            </div>
           ))}
+          <div aria-hidden style={{ height: tailSpace }} />
         </div>
       </div>
     </section>
