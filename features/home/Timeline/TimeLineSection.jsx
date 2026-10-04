@@ -174,7 +174,7 @@ export function Timeline() {
                     })}
                   </motion.div>
 
-                  <div className="pointer-events-none absolute inset-0 hidden items-end justify-center pb-[10%] lg:flex">
+                  <div className="pointer-events-none absolute inset-0 hidden items-end justify-center pb-6 lg:flex">
                     <div className="pointer-events-auto w-[70%] max-w-105 text-center xl:max-w-120">
                       <AnimatePresence mode="wait">
                         <motion.div
@@ -187,7 +187,7 @@ export function Timeline() {
                             ease: [0.22, 1, 0.36, 1],
                           }}
                         >
-                          <div className="relative mx-auto mb-2 aspect-video w-full max-w-65 overflow-hidden rounded-xl xl:max-w-120">
+                          <div className="relative mx-auto mb-2 aspect-video w-full max-w-45 overflow-hidden rounded-xl lg:max-w-85 2xl:max-w-100">
                             <Image
                               src={active.image}
                               alt={`${active.year} — ${active.title}`}
@@ -197,7 +197,7 @@ export function Timeline() {
                             />
                           </div>
 
-                          <h3 className="text-lg font-bold text-primary-foreground sm:text-xl lg:text-2xl xl:text-4xl">
+                          <h3 className="text-lg font-bold text-primary-foreground sm:text-lg lg:text-xl xl:text-2xl">
                             {active.title}
                           </h3>
 

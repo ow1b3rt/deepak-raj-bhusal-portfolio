@@ -31,7 +31,9 @@ export default function RootLayout({
         <GlowCard />
         <SmoothScroll>
           <Navbar />
-          <main>{children}</main>
+          <main className='pt-8 px-4'>
+            <div className="mx-auto container">{children}</div>
+          </main>
           <Footer />
           <ScrollToTop />
         </SmoothScroll>
