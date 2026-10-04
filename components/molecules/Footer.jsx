@@ -14,7 +14,7 @@ const footerData = {
     "Have an idea or project in mind? Let's connect and turn your vision into meaningful results.",
   cta: {
     label: "GET IN TOUCH",
-    href: "/connect",
+    href: "/connect-now",
   },
 }
 

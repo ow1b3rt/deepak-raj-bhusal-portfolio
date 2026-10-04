@@ -3,10 +3,16 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 import { Menu } from "lucide-react"
 import { motion } from "motion/react"
 import { useLenis } from "lenis/react"
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa6"
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa6"
 
 import { cn } from "@/lib/utils"
 
@@ -39,10 +45,18 @@ const socials = [
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false)
-  const [activeId, setActiveId] = React.useState("home")
+  const [activeId, setActiveId] = React.useState(null)
   const lenis = useLenis()
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const isHomePage = pathname === "/"
 
   const scrollToSection = (id) => {
+    if (!isHomePage) {
+      router.push(`/#${id}`)
+      return
+    }
     const el = document.getElementById(id)
     if (!el) return
     if (lenis) {
@@ -53,6 +67,10 @@ export function Navbar() {
   }
 
   React.useEffect(() => {
+    setActiveId(null)
+
+    if (!isHomePage) return
+
     const sections = navLinks
       .map((l) => document.getElementById(l.id))
       .filter(Boolean)
@@ -72,7 +90,7 @@ export function Navbar() {
 
     sections.forEach((s) => observer.observe(s))
     return () => observer.disconnect()
-  }, [])
+  }, [pathname, isHomePage])
 
   const isActive = (id) => activeId === id
 
@@ -170,13 +188,12 @@ export function Navbar() {
         </div>
 
         <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-          <button
-            type="button"
-            onClick={() => scrollToSection("connect")}
-            className="block cursor-pointer rounded-xl bg-chart-3 px-5 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-chart-3/90 lg:px-7 xl:text-xl lg:py-2.5 lg:text-base"
+          <Link
+            href="/connect-now"
+            className="block cursor-pointer rounded-xl bg-chart-3 px-5 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-chart-3/90 lg:px-7 lg:py-2.5 lg:text-base xl:text-xl"
           >
             Connect
-          </button>
+          </Link>
         </motion.div>
       </nav>
 
@@ -278,16 +295,13 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.35 }}
               >
-                <button
-                  type="button"
-                  onClick={() => {
-                    setOpen(false)
-                    setTimeout(() => scrollToSection("connect"), 250)
-                  }}
-                  className="mt-4 block h-11 w-full cursor-pointer rounded-xl bg-chart-3 px-4 text-center text-base font-semibold text-primary-foreground"
+                <Link
+                  href="/connect-now"
+                  onClick={() => setOpen(false)}
+                  className="mt-4 block h-11 w-full cursor-pointer rounded-xl bg-chart-3 px-4 text-center text-base leading-[2.75rem] font-semibold text-primary-foreground"
                 >
                   Connect
-                </button>
+                </Link>
               </motion.div>
             </div>
           </SheetContent>
