@@ -26,7 +26,7 @@ export function Story() {
       <div className="container mx-auto rounded-3xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.7, ease: easeOut }}
           className="py-2 sm:py-6 md:py-10 lg:py-12 xl:py-14"
