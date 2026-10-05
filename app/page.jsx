@@ -7,6 +7,7 @@ import {
   FeaturedVentures,
   InsightsSection,
   Timeline,
+  Blogs,
 } from "@/features/home"
 
 import { insights } from "@/data/insights"
@@ -20,6 +21,7 @@ export default function Page() {
       <FeaturedVentures />
       <Impact />
       <Timeline />
+      <Blogs />
       <Media />
       <InsightsSection
         heading="Insights"
