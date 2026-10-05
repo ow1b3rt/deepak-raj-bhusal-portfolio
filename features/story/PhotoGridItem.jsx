@@ -1,7 +1,14 @@
+"use client"
+import { motion } from "motion/react"
+
 export function PhotoGridItem({ gridArea, url }) {
   const bgImage = url ? `url(${url})` : 'none';
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={`flex bg-gray-200  ${gridArea}`} 
       style={{ backgroundImage: bgImage, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
@@ -14,8 +21,7 @@ export function PhotoGridItem({ gridArea, url }) {
         </div>
         <div className='flex-2' />
       </div>
-
-    </div>
+    </motion.div>
   );
 }
 
