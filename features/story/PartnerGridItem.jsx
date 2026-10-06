@@ -13,7 +13,7 @@ export function PartnerGridItem({ gridArea }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`flex gap-4 bg-none ${gridArea}`}
+      className={`flex flex-col md:flex-row gap-4 bg-none ${gridArea}`}
     >
       <div className="flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-1 font-bold text-red-600">
         <span className="text-base font-extrabold tracking-widest uppercase md:text-lg">

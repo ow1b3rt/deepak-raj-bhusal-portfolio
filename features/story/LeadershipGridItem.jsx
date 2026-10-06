@@ -20,7 +20,7 @@ export function LeadershipGridItem({ gridArea }) {
         A passionate professional committed to leadership, innovation, and
         meaningful contributions to society.
       </p>
-      <div className="relative mt-2 h-48 w-full overflow-hidden rounded-xl">
+      <div className="relative mt-2 h-64 lg:48 w-full overflow-hidden rounded-xl">
         <SafeImage
           src="/images/person/ventures.png"
           alt="Leadership"

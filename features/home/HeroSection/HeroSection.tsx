@@ -78,7 +78,6 @@ export function Hero() {
           >
             <Link
               href={cta.href}
-              onClick={handleCtaClick}
               className="group inline-flex items-center gap-2 rounded-xl bg-chart-3 px-5 py-2 text-base font-semibold text-primary-foreground md:text-xl lg:px-6 lg:py-4"
             >
               <span>{cta.label}</span>

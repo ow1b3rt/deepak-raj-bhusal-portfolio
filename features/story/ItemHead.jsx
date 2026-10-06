@@ -5,5 +5,5 @@ export function ItemHead({ text, className = "text-black" }) {
 
   const capitalized = text.toUpperCase()
 
-  return <h2 className={`text-4xl font-bold ${className}`}>{capitalized}</h2>
+  return <h2 className={`text-xl md:text-4xl font-bold ${className}`}>{capitalized}</h2>
 }

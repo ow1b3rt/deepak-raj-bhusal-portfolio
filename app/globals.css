@@ -128,3 +128,7 @@
     @apply font-sans;
     }
 }
+
+.red-gradient {
+  @apply bg-[radial-gradient(ellipse_at_55%_85%,#e0605c_0%,#d44a4b_35%,#c1303d_65%,#a8243a_100%)];
+}

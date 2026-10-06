@@ -17,6 +17,7 @@
     "cn": "^0.4.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+    "html-react-parser": "^6.1.8",
     "lenis": "^1.3.26",
     "lucide-react": "^1.49.0",
     "motion": "^13.4.6",

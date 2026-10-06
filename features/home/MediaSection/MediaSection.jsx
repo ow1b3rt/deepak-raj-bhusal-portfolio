@@ -5,6 +5,7 @@ import Link from "next/link"
 import { ArrowUpRight, Play } from "lucide-react"
 import { motion } from "motion/react"
 import { mediaData } from "./mediaData"
+import { MoreButton } from "@/components/shared/MoreButton"
 
 import { cn } from "@/lib/utils"
 import { AutoCarousel } from "@/components/molecules/AutoCarousel"
@@ -93,7 +94,7 @@ export function Media() {
       id="media"
       className="relative w-full bg-background py-16 md:py-20 lg:py-24"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex flex-col  px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +121,24 @@ export function Media() {
             className="w-full"
           />
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: easeOut }}
+          className="mt-15 flex justify-center"
+        >
+          <Link
+            href="/media"
+            className="flex items-center gap-2 rounded-2xl bg-foreground px-8 py-3 text-base font-semibold text-background transition-opacity duration-300 hover:opacity-80 md:text-lg"
+          >
+            More Media <ArrowUpRight className="h-5 w-5" />
+          </Link>
+        </motion.div>
+
       </div>
+
     </section>
   )
 }

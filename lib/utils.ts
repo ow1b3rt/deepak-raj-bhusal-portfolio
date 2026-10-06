@@ -1,5 +1,10 @@
 export { cn } from 'cn';
 
+export function capitalise(str) {
+  return str.replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+
 export function slugify(str) {
   return str
     .toLowerCase()
