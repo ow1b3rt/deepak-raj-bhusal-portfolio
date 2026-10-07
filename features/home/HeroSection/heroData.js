@@ -13,7 +13,7 @@ export const heroData = {
     targetId: "story",
   },
   image: {
-    src: "/images/person/hero-img.png",
+    src: "/images/person/deepak-sitting.png",
     alt: "Deepak Raj Bhusal",
   },
   caption: {

@@ -19,7 +19,7 @@ export default function Page() {
       <Story />
       <ProofPoints />
       <FeaturedVentures />
-      <Impact />
+      {/*<Impact />*/}
       <Timeline />
       <Blogs />
       <Media />

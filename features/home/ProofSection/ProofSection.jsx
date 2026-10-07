@@ -86,7 +86,7 @@ export function ProofPoints() {
                 alt={image.alt}
                 fill
                 priority
-                sizes="(max-width: 768px) 60vw, 400px"
+                sizes="100vw, 60vw"
                 className="object-contain object-bottom"
               />
             </div>

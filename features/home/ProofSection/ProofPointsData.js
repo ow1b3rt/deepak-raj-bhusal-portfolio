@@ -1,6 +1,6 @@
 export const ProofPointsData = {
   image: {
-    src: "/images/person/ventures.png",
+    src: "/images/person/deepak-standing.png",
     alt: "Deepak Raj Bhusal",
   },
   items: [

@@ -101,7 +101,7 @@ export function Hero() {
                 alt={image.alt}
                 fill
                 priority
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="100vw, 50vw"
                 className="rotate-1 object-cover object-top"
               />
             </div>
