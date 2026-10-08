@@ -5,51 +5,42 @@ import Image from "next/image"
 import {
   motion,
   AnimatePresence,
-  useScroll,
-  useTransform,
-  useSpring,
-  useReducedMotion,
 } from "motion/react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { TIMELINE_DATA } from "./timelineData"
 
-function getNodePosition(index, total) {
-  const angleDeg = 180 - (180 / (total - 1)) * index
+function getNodePosition(index, total, activeIndex) {
+  const spacing = 180 / (total - 1)
+  
+  let offset = (index - activeIndex) % total
+  const half = Math.floor(total / 2)
+  if (offset > half) {
+    offset -= total
+  } else if (offset < -half) {
+    offset += total
+  }
+
+  // angle decreases as offset increases
+  const angleDeg = 90 - offset * spacing
   const angleRad = (angleDeg * Math.PI) / 180
 
-  const x = 50 + 47 * Math.cos(angleRad)
+  const x = 50 + 50 * Math.cos(angleRad)
   const y = 50 - 50 * Math.sin(angleRad)
 
-  return { x, y: y * 2 }
-}
+  // Since all nodes are now always within 0 to 180 degrees, opacity is always 1.
+  // We keep it for consistency or if we want to fade out during jump.
+  const opacity = 1
 
-const MAX_ROTATION = 3
+  return { x, y: y * 2, opacity, angleDeg }
+}
 
 export function Timeline() {
   const [activeIndex, setActiveIndex] = useState(3)
   const sectionRef = useRef(null)
-  const prefersReducedMotion = useReducedMotion()
 
   const active = TIMELINE_DATA[activeIndex]
   const total = TIMELINE_DATA.length
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  })
-
-  const rotationRange = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [-MAX_ROTATION, MAX_ROTATION, -MAX_ROTATION]
-  )
-
-  const rotation = useSpring(rotationRange, {
-    stiffness: 35,
-    damping: 22,
-    mass: 0.9,
-  })
 
   const goPrev = useCallback(() => {
     setActiveIndex((i) => (i - 1 + total) % total)
@@ -93,7 +84,7 @@ export function Timeline() {
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 100 50"
-                    preserveAspectRatio="xMidYMid meet"
+                    preserveAspectRatio="none"
                     className="absolute inset-0 h-full w-full overflow-visible"
                   >
                     <defs>
@@ -117,26 +108,28 @@ export function Timeline() {
                     </foreignObject>
                   </svg>
 
-                  <motion.div
-                    style={{
-                      rotate: prefersReducedMotion ? 0 : rotation,
-                      originX: 0.5,
-                      originY: 1,
-                    }}
-                    className="absolute inset-0"
-                  >
+                  <div className="absolute inset-0">
                     {TIMELINE_DATA.map((item, i) => {
-                      const { x, y } = getNodePosition(i, total)
+                      const { x, y, opacity } = getNodePosition(i, total, activeIndex)
                       const isActive = i === activeIndex
                       return (
-                        <button
+                        <motion.button
                           key={item.year}
                           type="button"
                           onClick={() => setActiveIndex(i)}
                           aria-pressed={isActive}
                           aria-label={`Show ${item.year} milestone`}
                           className="group absolute z-2 -translate-x-1/2 -translate-y-1/2 focus:outline-none"
-                          style={{ left: `${x}%`, top: `${y}%` }}
+                          initial={false}
+                          animate={{ 
+                            left: `${x}%`, 
+                            top: `${y}%`, 
+                            opacity 
+                          }}
+                          transition={{ type: "spring", stiffness: 45, damping: 12, mass: 0.9 }}
+                          style={{
+                            pointerEvents: opacity === 0 ? "none" : "auto",
+                          }}
                         >
                           <motion.span
                             animate={isActive ? { scale: 1.15 } : { scale: 1 }}
@@ -169,10 +162,10 @@ export function Timeline() {
                               )}
                             />
                           </motion.span>
-                        </button>
+                        </motion.button>
                       )
                     })}
-                  </motion.div>
+                  </div>
 
                   <div className="pointer-events-none absolute inset-0 hidden items-end justify-center pb-6 lg:flex">
                     <div className="pointer-events-auto w-[70%] max-w-105 text-center xl:max-w-120">
