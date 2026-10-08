@@ -21,10 +21,14 @@ export function DriveGridItem({ gridArea }) {
       </div>
 
       <div className="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
-        <button className="flex items-center gap-2 rounded-xl border border-white px-6 py-3 text-sm font-semibold tracking-wider text-white uppercase transition-colors hover:cursor-pointer hover:bg-white hover:text-black md:text-base">
+        <a
+          href="/cv/deepak_sir_cv.pdf"
+          download="Deepak-Raj-Bhusal-CV.pdf"
+          className="flex items-center gap-2 rounded-xl border border-white px-6 py-3 text-sm font-semibold tracking-wider text-white uppercase transition-colors hover:cursor-pointer hover:bg-white hover:text-black md:text-base"
+        >
           Download CV
           <ArrowUpRight className="h-5 w-5" strokeWidth={2.5} />
-        </button>
+        </a>
         <p className="text-sm text-white/80 sm:text-right md:text-base">
           or email us at
           <br />
