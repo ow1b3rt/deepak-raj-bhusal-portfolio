@@ -1,12 +1,12 @@
 export const sideContentData = {
-  eyebrow: "Lorem Ipsum",
-  heading: "A professional driven by vision & purpose",
+  eyebrow: "POSITIONS IN BUSINESS HOUSES",
+  heading: "Leading Multiple Ventures with Vision & Excellence",
   paragraphs: [
-    "Lorem ipsum dolor sit amet consectetur. Odio lacus natoque dolor massa in blandit. Egestas ornare nec diam a. Sagittis habitant suspendisse urna proin non magna. Blandit purus condimentum dictum varius sagittis sed. Ut nulla diam odio in pellentesque fusce.",
-    "Sed semper condimentum quam ac. Varius eu turpis hendrerit lacinia diam a. Adipiscing eleifend quis a at commodo tincidunt morbi ipsum. Vitae netus duis consequat etiam faucibus. Ultricies sapien placerat lacinia id eu pharetra volutpat sed.",
+    "Currently serving as Executive Chairman at Enlighten International Education, Enlighten Travels and Tours, Godawari Panoromic Resort, Enlighten Infosys, Enlighten Skills and Vocational Training Center, and Enlighten Leaf.",
+    "Also contributing as Chairman of Sarangkot Corporate Group and Board of Director at Adhrsheela College and Manasi Kids Palace, guiding them towards continuous growth and success."
   ],
   highlights: [
-    { id: 1, text: "Lorem ipsum dolor sit amet consectetur." },
-    { id: 2, text: "Lorem ipsum dolor sit amet consectetur." },
+    { id: 1, text: "Extensive experience in educational consultancy and tourism sectors." },
+    { id: 2, text: "Strategic leadership in multiple corporate groups." },
   ],
 };
