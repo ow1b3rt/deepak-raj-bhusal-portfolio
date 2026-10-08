@@ -2,17 +2,14 @@
 
 import React, { useState, useRef, useCallback } from "react"
 import Image from "next/image"
-import {
-  motion,
-  AnimatePresence,
-} from "motion/react"
+import { motion, AnimatePresence } from "motion/react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { TIMELINE_DATA } from "./timelineData"
 
 function getNodePosition(index, total, activeIndex) {
   const spacing = 180 / (total - 1)
-  
+
   let offset = (index - activeIndex) % total
   const half = Math.floor(total / 2)
   if (offset > half) {
@@ -110,7 +107,11 @@ export function Timeline() {
 
                   <div className="absolute inset-0">
                     {TIMELINE_DATA.map((item, i) => {
-                      const { x, y, opacity } = getNodePosition(i, total, activeIndex)
+                      const { x, y, opacity } = getNodePosition(
+                        i,
+                        total,
+                        activeIndex
+                      )
                       const isActive = i === activeIndex
                       return (
                         <motion.button
@@ -121,12 +122,17 @@ export function Timeline() {
                           aria-label={`Show ${item.year} milestone`}
                           className="group absolute z-2 -translate-x-1/2 -translate-y-1/2 focus:outline-none"
                           initial={false}
-                          animate={{ 
-                            left: `${x}%`, 
-                            top: `${y}%`, 
-                            opacity 
+                          animate={{
+                            left: `${x}%`,
+                            top: `${y}%`,
+                            opacity,
                           }}
-                          transition={{ type: "spring", stiffness: 45, damping: 12, mass: 0.9 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 45,
+                            damping: 12,
+                            mass: 0.9,
+                          }}
                           style={{
                             pointerEvents: opacity === 0 ? "none" : "auto",
                           }}
@@ -167,8 +173,8 @@ export function Timeline() {
                     })}
                   </div>
 
-                  <div className="pointer-events-none absolute inset-0 hidden items-end justify-center pb-6 lg:flex">
-                    <div className="pointer-events-auto w-[70%] max-w-105 text-center xl:max-w-120">
+                  <div className="pointer-events-none absolute inset-0 hidden items-center justify-center pt-[10%] lg:flex">
+                    <div className="pointer-events-auto w-[90%] max-w-4xl xl:max-w-5xl">
                       <AnimatePresence mode="wait">
                         <motion.div
                           key={active.year}
@@ -179,24 +185,27 @@ export function Timeline() {
                             duration: 0.4,
                             ease: [0.22, 1, 0.36, 1],
                           }}
+                          className="flex items-center gap-8 text-left xl:gap-12"
                         >
-                          <div className="relative mx-auto mb-2 aspect-video w-full max-w-45 overflow-hidden rounded-xl lg:max-w-85 2xl:max-w-100">
+                          <div className="relative aspect-square w-56 shrink-0 overflow-hidden rounded-full border-4 border-background/20 shadow-xl lg:w-72 xl:w-80">
                             <Image
                               src={active.image}
                               alt={`${active.year} — ${active.title}`}
                               fill
-                              sizes="(max-width: 1280px) 260px, 300px"
+                              sizes="(max-width: 1280px) 288px, 320px"
                               className="object-cover"
                             />
                           </div>
 
-                          <h3 className="text-lg font-bold text-primary-foreground sm:text-lg lg:text-xl xl:text-2xl">
-                            {active.title}
-                          </h3>
+                          <div className="flex-1">
+                            <h3 className="text-2xl font-bold text-primary-foreground lg:text-3xl xl:text-4xl">
+                              {active.title}
+                            </h3>
 
-                          <p className="mt-2 text-xs leading-relaxed text-primary-foreground/85 sm:text-base md:text-lg xl:text-xl">
-                            {active.body}
-                          </p>
+                            <p className="mt-4 text-base leading-relaxed text-primary-foreground/90 lg:text-lg xl:text-xl">
+                              {active.body}
+                            </p>
+                          </div>
                         </motion.div>
                       </AnimatePresence>
                     </div>
@@ -206,7 +215,7 @@ export function Timeline() {
             </div>
           </div>
 
-          <div className="mb-6 lg:hidden">
+          <div className="mb-6 px-4 lg:hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.year}
@@ -214,25 +223,27 @@ export function Timeline() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="text-center"
+                className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left"
               >
-                <div className="relative mx-auto mb-4 aspect-video w-full max-w-75 overflow-hidden rounded-xl border border-border bg-card shadow-lg sm:max-w-90">
+                <div className="relative aspect-square w-32 shrink-0 overflow-hidden rounded-full border-4 border-primary/10 shadow-lg sm:w-40">
                   <Image
                     src={active.image}
                     alt={`${active.year} — ${active.title}`}
                     fill
-                    sizes="(max-width: 640px) 300px, 360px"
+                    sizes="(max-width: 640px) 128px, 160px"
                     className="object-cover"
                   />
                 </div>
 
-                <h3 className="text-lg font-bold text-foreground sm:text-xl ">
-                  {active.title}
-                </h3>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-foreground sm:text-xl">
+                    {active.title}
+                  </h3>
 
-                <p className="mx-auto mt-2 max-w-[90%] text-sm leading-relaxed text-muted-foreground line-clamp-3 sm:max-w-[80%]">
-                  {active.body}
-                </p>
+                  <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
+                    {active.body}
+                  </p>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
