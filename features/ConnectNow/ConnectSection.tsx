@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "motion/react"
+import { toast } from "sonner"
 import { ConnectForm, SectionConfig } from "./ConnectForm"
 
 const easeOut = [0.22, 1, 0.36, 1] as const
@@ -90,11 +91,36 @@ const connectFormSections: SectionConfig[] = [
 
 export function ConnectSection() {
   const [loading, setLoading] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+  const [resetKey, setResetKey] = useState(0)
 
   const handleSubmit = async (data: Record<string, string>) => {
     setLoading(true)
     try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API || "http://localhost:5000/api"}/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        },
+      )
+
+      if (!response.ok) {
+        throw new Error("Failed to submit")
+      }
+
+      toast.success("Message sent!", {
+        description: "Thank you for reaching out. We'll be in touch soon.",
+      })
+      // Increment resetKey to trigger form clear in ConnectForm
+      setResetKey((k) => k + 1)
+    } catch (error) {
+      console.error(error)
+      toast.error("Something went wrong", {
+        description: "Your message couldn't be sent. Please try again.",
+      })
     } finally {
       setLoading(false)
     }
@@ -123,18 +149,6 @@ export function ConnectSection() {
           </p>
         </motion.div>
 
-        {/* Success banner */}
-        {submitted && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="mb-8 rounded-lg bg-primary/10 px-5 py-3 text-center text-sm font-semibold text-primary"
-          >
-            ✓ Your message has been sent! We&apos;ll be in touch soon.
-          </motion.div>
-        )}
-
         {/* Form */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -147,6 +161,7 @@ export function ConnectSection() {
             onSubmit={handleSubmit}
             submitButtonText="Send Message"
             loading={loading}
+            resetKey={resetKey}
           />
         </motion.div>
       </div>
