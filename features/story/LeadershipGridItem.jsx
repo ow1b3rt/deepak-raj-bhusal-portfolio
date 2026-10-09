@@ -5,7 +5,7 @@ import { motion } from "motion/react"
 
 export function LeadershipGridItem({ gridArea }) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -16,11 +16,11 @@ export function LeadershipGridItem({ gridArea }) {
         text="Leadership & Vision"
         className="w-2/3 text-red-600 uppercase"
       />
-      <p className="text-sm leading-relaxed text-gray-600 md:text-base">
+      <p className="text-sm leading-relaxed text-gray-600 md:text-xl">
         A passionate professional committed to leadership, innovation, and
         meaningful contributions to society.
       </p>
-      <div className="relative mt-2 h-64 lg:48 w-full overflow-hidden rounded-xl">
+      <div className="lg:48 relative mt-2 h-64 w-full overflow-hidden rounded-xl">
         <SafeImage
           src="/images/person/ventures.png"
           alt="Leadership"

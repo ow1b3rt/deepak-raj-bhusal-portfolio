@@ -2,9 +2,9 @@
 import { Paragraph } from '@/components/ui/paragraph';
 import { motion } from "motion/react"
 
-const storyText = `Deepak Raj Bhusal is a passionate professional, leader, and entrepreneur committed to creating meaningful opportunities and positive impact. Through his professional journey, he has worked across education, business, leadership, and community initiatives.\n
-
-With a strong belief in collaboration and continuous growth, Deepak focuses on connecting people, developing ideas, and turning opportunities into meaningful outcomes. His journey reflects a commitment to excellence, innovation, and purposeful leadership. A passionate professional committed to leadership, innovation, and meaningful contributions to society. Driven by a desire to create positive change, he believes in continuous learning, meaningful collaboration, and turning ideas into opportunities that create lasting value.`;
+const storyText = `Starting from scratch, from a small village of Nepal, I have come a long way to become a successful businessman and a devoted social activist, who wants growth and integrity in both of the areas, for I have attained numerous trainings, attended many workshops and participated in several seminars in Nepal and overseas.\n
+I have involved in numerous activities in social and political sector too. In addition to that, I have invested my physical and emotional energies to excel in whatever responsibilities I have been accorded with the larger authorities for social welfare and upliftment on ground. I am a hardworking, organized, and motivated person with a passion for politics, human rights and equality.\n
+I am still striving to achieve a lot through participation and attendance.`;
 
 export function StoryGridItem({ gridArea }) {
   return (

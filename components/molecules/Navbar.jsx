@@ -28,9 +28,9 @@ const navLinks = [
   { label: "Home", id: "home" },
   { label: "Story", id: "story" },
   { label: "Ventures", id: "ventures" },
-  { label: "Impact", id: "impact" },
-  { label: "Insights", id: "insights" },
+  { label: "Blogs", id: "blogs" },
   { label: "Media", id: "media" },
+  { label: "Insights", id: "insights" },
 ]
 
 const LEFT_LINKS = navLinks.slice(0, 3)
@@ -71,25 +71,48 @@ export function Navbar() {
 
     if (!isHomePage) return
 
-    const sections = navLinks
-      .map((l) => document.getElementById(l.id))
-      .filter(Boolean)
+    let observer = null
+    const observedElements = new Set()
 
-    if (!sections.length) return
+    const initObserver = () => {
+      if (!observer) {
+        observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((e) => e.isIntersecting)
+              .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+            if (visible[0]) setActiveId(visible[0].target.id)
+          },
+          { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+        )
+      }
 
-        if (visible[0]) setActiveId(visible[0].target.id)
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-    )
+      navLinks.forEach((l) => {
+        const el = document.getElementById(l.id)
+        if (el && !observedElements.has(el)) {
+          observer.observe(el)
+          observedElements.add(el)
+        }
+      })
+    }
 
-    sections.forEach((s) => observer.observe(s))
-    return () => observer.disconnect()
+    initObserver()
+
+    const mutationObserver = new MutationObserver(() => {
+      if (observedElements.size < navLinks.length) {
+        initObserver()
+      } else {
+        mutationObserver.disconnect()
+      }
+    })
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true })
+
+    return () => {
+      if (observer) observer.disconnect()
+      mutationObserver.disconnect()
+    }
   }, [pathname, isHomePage])
 
   const isActive = (id) => activeId === id

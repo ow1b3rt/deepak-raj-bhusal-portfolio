@@ -2,54 +2,42 @@
 
 import React, { useState, useRef, useCallback } from "react"
 import Image from "next/image"
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useTransform,
-  useSpring,
-  useReducedMotion,
-} from "motion/react"
+import { motion, AnimatePresence } from "motion/react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { TIMELINE_DATA } from "./timelineData"
 
-function getNodePosition(index, total) {
-  const angleDeg = 180 - (180 / (total - 1)) * index
+function getNodePosition(index, total, activeIndex) {
+  const spacing = 180 / (total - 1)
+
+  let offset = (index - activeIndex) % total
+  const half = Math.floor(total / 2)
+  if (offset > half) {
+    offset -= total
+  } else if (offset < -half) {
+    offset += total
+  }
+
+  // angle decreases as offset increases
+  const angleDeg = 90 - offset * spacing
   const angleRad = (angleDeg * Math.PI) / 180
 
-  const x = 50 + 47 * Math.cos(angleRad)
+  const x = 50 + 50 * Math.cos(angleRad)
   const y = 50 - 50 * Math.sin(angleRad)
 
-  return { x, y: y * 2 }
-}
+  // Since all nodes are now always within 0 to 180 degrees, opacity is always 1.
+  // We keep it for consistency or if we want to fade out during jump.
+  const opacity = 1
 
-const MAX_ROTATION = 3
+  return { x, y: y * 2, opacity, angleDeg }
+}
 
 export function Timeline() {
   const [activeIndex, setActiveIndex] = useState(3)
   const sectionRef = useRef(null)
-  const prefersReducedMotion = useReducedMotion()
 
   const active = TIMELINE_DATA[activeIndex]
   const total = TIMELINE_DATA.length
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  })
-
-  const rotationRange = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [-MAX_ROTATION, MAX_ROTATION, -MAX_ROTATION]
-  )
-
-  const rotation = useSpring(rotationRange, {
-    stiffness: 35,
-    damping: 22,
-    mass: 0.9,
-  })
 
   const goPrev = useCallback(() => {
     setActiveIndex((i) => (i - 1 + total) % total)
@@ -83,17 +71,14 @@ export function Timeline() {
         <div className="relative mt-8 sm:mt-10 lg:mt-14">
           <div className="pointer-events-none absolute inset-0 rounded-xl border border-primary/30 bg-primary/10 sm:rounded-2xl" />
 
-          <div
-            className="relative mx-auto w-full"
-            style={{ maxHeight: "58rem" }}
-          >
-            <div className="relative aspect-2/1 max-h-200 w-full">
-              <div className="absolute inset-0 p-[4%] sm:p-[5%] lg:p-[4%]">
+          <div className="relative mx-auto w-full">
+            <div className="relative aspect-2/1 w-full">
+              <div className="absolute inset-0 p-[4%]">
                 <div className="relative h-full w-full">
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 100 50"
-                    preserveAspectRatio="xMidYMid meet"
+                    preserveAspectRatio="none"
                     className="absolute inset-0 h-full w-full overflow-visible"
                   >
                     <defs>
@@ -117,26 +102,37 @@ export function Timeline() {
                     </foreignObject>
                   </svg>
 
-                  <motion.div
-                    style={{
-                      rotate: prefersReducedMotion ? 0 : rotation,
-                      originX: 0.5,
-                      originY: 1,
-                    }}
-                    className="absolute inset-0"
-                  >
+                  <div className="absolute inset-0">
                     {TIMELINE_DATA.map((item, i) => {
-                      const { x, y } = getNodePosition(i, total)
+                      const { x, y, opacity } = getNodePosition(
+                        i,
+                        total,
+                        activeIndex
+                      )
                       const isActive = i === activeIndex
                       return (
-                        <button
+                        <motion.button
                           key={item.year}
                           type="button"
                           onClick={() => setActiveIndex(i)}
                           aria-pressed={isActive}
                           aria-label={`Show ${item.year} milestone`}
                           className="group absolute z-2 -translate-x-1/2 -translate-y-1/2 focus:outline-none"
-                          style={{ left: `${x}%`, top: `${y}%` }}
+                          initial={false}
+                          animate={{
+                            left: `${x}%`,
+                            top: `${y}%`,
+                            opacity,
+                          }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 45,
+                            damping: 12,
+                            mass: 0.9,
+                          }}
+                          style={{
+                            pointerEvents: opacity === 0 ? "none" : "auto",
+                          }}
                         >
                           <motion.span
                             animate={isActive ? { scale: 1.15 } : { scale: 1 }}
@@ -148,11 +144,11 @@ export function Timeline() {
                             }}
                             className={cn(
                               "relative flex items-center justify-center rounded-full font-semibold transition-colors",
-                              "h-9 w-9 text-[10px]",
-                              "sm:h-11 sm:w-11 sm:text-[11px]",
-                              "md:h-12 md:w-12 md:text-xs",
-                              "lg:h-16 lg:w-16 lg:text-sm",
-                              "xl:h-18 xl:w-18 xl:text-base",
+                              "h-6 w-6 text-[7px]",
+                              "sm:h-9 sm:w-9 sm:text-[9px]",
+                              "md:h-11 md:w-11 md:text-[10px]",
+                              "lg:h-14 lg:w-14 lg:text-xs",
+                              "xl:h-16 xl:w-16 xl:text-sm",
                               isActive
                                 ? "bg-primary text-primary-foreground shadow-[0_0_40px_-8px_var(--primary)]"
                                 : "bg-foreground/85 text-background hover:bg-foreground"
@@ -169,13 +165,14 @@ export function Timeline() {
                               )}
                             />
                           </motion.span>
-                        </button>
+                        </motion.button>
                       )
                     })}
-                  </motion.div>
+                  </div>
 
-                  <div className="pointer-events-none absolute inset-0 hidden items-end justify-center pb-6 lg:flex">
-                    <div className="pointer-events-auto w-[70%] max-w-105 text-center xl:max-w-120">
+                  {/* Content overlay — always inside the arc at all breakpoints */}
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center pt-[8%] pb-[2%]">
+                    <div className="pointer-events-auto w-[62%] sm:w-[68%] lg:w-[76%] xl:w-[72%]">
                       <AnimatePresence mode="wait">
                         <motion.div
                           key={active.year}
@@ -186,24 +183,27 @@ export function Timeline() {
                             duration: 0.4,
                             ease: [0.22, 1, 0.36, 1],
                           }}
+                          className="flex items-center gap-2 text-left sm:gap-4 md:gap-6 xl:gap-10"
                         >
-                          <div className="relative mx-auto mb-2 aspect-video w-full max-w-45 overflow-hidden rounded-xl lg:max-w-85 2xl:max-w-100">
+                          <div className="relative aspect-square w-[22%] min-w-0 shrink-0 overflow-hidden rounded-full border-2 border-background/20 shadow-lg sm:border-4 sm:w-[26%] md:w-[28%] lg:w-[30%]">
                             <Image
                               src={active.image}
                               alt={`${active.year} — ${active.title}`}
                               fill
-                              sizes="(max-width: 1280px) 260px, 300px"
+                              sizes="30vw"
                               className="object-cover"
                             />
                           </div>
 
-                          <h3 className="text-lg font-bold text-primary-foreground sm:text-lg lg:text-xl xl:text-2xl">
-                            {active.title}
-                          </h3>
+                          <div className="min-w-0 flex-1">
+                            <h3 className="text-[clamp(0.55rem,1.8vw,2rem)] font-bold leading-tight text-primary-foreground sm:text-[clamp(0.7rem,2vw,2rem)] md:text-[clamp(0.85rem,2.2vw,2.5rem)] lg:text-[clamp(1rem,2.4vw,3rem)]">
+                              {active.title}
+                            </h3>
 
-                          <p className="mt-2 text-xs leading-relaxed text-primary-foreground/85 sm:text-base md:text-lg xl:text-xl">
-                            {active.body}
-                          </p>
+                            <p className="mt-1 line-clamp-3 text-[clamp(0.45rem,1.3vw,1.2rem)] leading-snug text-primary-foreground/90 sm:mt-2 sm:text-[clamp(0.55rem,1.4vw,1.3rem)] md:text-[clamp(0.65rem,1.5vw,1.4rem)] lg:mt-3 lg:line-clamp-4 lg:text-[clamp(0.75rem,1.5vw,1.5rem)]">
+                              {active.body}
+                            </p>
+                          </div>
                         </motion.div>
                       </AnimatePresence>
                     </div>
@@ -211,37 +211,6 @@ export function Timeline() {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="mb-6 lg:hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active.year}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="text-center"
-              >
-                <div className="relative mx-auto mb-4 aspect-video w-full max-w-75 overflow-hidden rounded-xl border border-border bg-card shadow-lg sm:max-w-90">
-                  <Image
-                    src={active.image}
-                    alt={`${active.year} — ${active.title}`}
-                    fill
-                    sizes="(max-width: 640px) 300px, 360px"
-                    className="object-cover"
-                  />
-                </div>
-
-                <h3 className="text-lg font-bold text-foreground sm:text-xl ">
-                  {active.title}
-                </h3>
-
-                <p className="mx-auto mt-2 max-w-[90%] text-sm leading-relaxed text-muted-foreground line-clamp-3 sm:max-w-[80%]">
-                  {active.body}
-                </p>
-              </motion.div>
-            </AnimatePresence>
           </div>
         </div>
 

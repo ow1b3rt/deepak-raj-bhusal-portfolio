@@ -3,6 +3,8 @@
 import Image from "next/image"
 import { motion } from "motion/react"
 import { storyData } from "./storyData"
+import { MoreButton } from "@/components/shared/MoreButton"
+import { ArrowUpRight } from "lucide-react"
 
 const easeOut = [0.22, 1, 0.36, 1] as const
 
@@ -87,6 +89,16 @@ export function Story() {
                     {p}
                   </motion.p>
                 ))}
+                <MoreButton
+                  href={`/story/`}
+                  bgColor="black"
+                  content={
+                    <span className="font-bold">
+                      Read More{" "}
+                      <ArrowUpRight className="ml-1 inline-block h-4 w-4" />
+                    </span>
+                  }
+                />
               </div>
             </div>
           </div>

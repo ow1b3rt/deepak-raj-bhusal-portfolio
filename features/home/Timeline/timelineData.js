@@ -30,7 +30,7 @@ export const TIMELINE_DATA = [
     image: "/images/person/hero.jpg",
   },
   {
-    year: "2024–2025",
+    year: "2024",
     title: "Community Leadership",
     body: "Served as President of Lions Club of Kathmandu Basistha Global, continuing his involvement in community and social service.",
     image: "/images/person/hero.jpg",

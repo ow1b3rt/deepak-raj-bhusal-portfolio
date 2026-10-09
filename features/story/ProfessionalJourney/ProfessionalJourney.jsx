@@ -3,8 +3,8 @@ import { Radio } from "lucide-react";
 import { SideContent } from './SideContent';
 
 const stats = [
-  { value: "500+", label: "Lorem ipsum" },
-  { value: "1500+", label: "Lorem ipsum" },
+  { value: "15+", label: "Years of Experience" },
+  { value: "10+", label: "Business Ventures" },
 ];
 
 function TopContent() {
