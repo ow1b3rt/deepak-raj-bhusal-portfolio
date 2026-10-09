@@ -33,12 +33,12 @@ export function PartnerGridItem({ gridArea }) {
         {partners.map((p) => (
           <div key={p.id} className="flex items-center justify-center">
             {p.image ? (
-              <div className="relative h-10 w-24">
+              <div className="relative h-10 w-32">
                 <SafeImage
                   src={p.image}
                   alt={p.name}
                   fill
-                  className="object-contain"
+                  objectFit="contain"
                 />
               </div>
             ) : (

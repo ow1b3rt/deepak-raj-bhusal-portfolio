@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { ArrowRight, Loader2 } from "lucide-react"
 import { motion } from "motion/react"
 
@@ -41,6 +41,8 @@ export interface ConnectFormProps {
   onSubmit: (data: Record<string, string>) => void | Promise<void>
   submitButtonText?: string
   loading?: boolean
+  /** Increment this to reset the form back to empty state */
+  resetKey?: number
 }
 
 // ─── Radio Option ─────────────────────────────────────────────────────────────
@@ -100,15 +102,45 @@ export function ConnectForm({
   onSubmit,
   submitButtonText = "Send Message",
   loading = false,
+  resetKey = 0,
 }: ConnectFormProps) {
   const [formData, setFormData] = useState<Record<string, string>>({})
+  const [errors, setErrors] = useState<Record<string, string>>({})
+
+  // Reset form whenever resetKey changes
+  useEffect(() => {
+    if (resetKey > 0) {
+      setFormData({})
+      setErrors({})
+    }
+  }, [resetKey])
 
   const handleChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }))
+    // Clear error as soon as user picks a value
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }))
+    }
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validate required radio fields (HTML validation doesn't catch these)
+    const newErrors: Record<string, string> = {}
+    sections.forEach((section) => {
+      section.fields.forEach((field) => {
+        if (field.type === "radio" && field.required && !formData[field.name]) {
+          newErrors[field.name] = `Please select an option for "${field.label}"`
+        }
+      })
+    })
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return
+    }
+
     onSubmit(formData)
   }
 
@@ -152,6 +184,11 @@ export function ConnectForm({
                           onChange={() => handleChange(field.name, option.value)}
                         />
                       ))}
+                      {errors[field.name] && (
+                        <p className="text-sm font-medium text-red-500">
+                          {errors[field.name]}
+                        </p>
+                      )}
                     </div>
                   )
                 }
