@@ -11,8 +11,9 @@ export const insights = [
     ],
     cta: { label: "Learn More", href: "#" },
     image: {
-      src: "/images/person/hero.jpg",
+      src: "/images/person/Entrepreneurship_&_Business_Leadership.JPG",
       alt: "Deepak Raj Bhusal",
+      className: "object-cover object-[50%_30%]",
     },
   },
   {
@@ -27,8 +28,9 @@ export const insights = [
     ],
     cta: { label: "Learn More", href: "#" },
     image: {
-      src: "/images/person/hero.jpg",
+      src: "/images/person/Education_&_Professional_Development.JPG",
       alt: "Deepak Raj Bhusal",
+      className: "object-contain",
     },
   },
   {
@@ -43,8 +45,9 @@ export const insights = [
     ],
     cta: { label: "Learn More", href: "#" },
     image: {
-      src: "/images/person/hero.jpg",
+      src: "/images/person/Professional_Associations_&_Industry_Leadership.JPG",
       alt: "Deepak Raj Bhusal",
+      className: "object-cover object-[50%_20%]",
     },
   },
   {
@@ -59,8 +62,9 @@ export const insights = [
     ],
     cta: { label: "Learn More", href: "#" },
     image: {
-      src: "/images/person/hero.jpg",
+      src: "/images/person/Social_Service_&_Community_Involvement.jpg",
       alt: "Deepak Raj Bhusal",
+      className: "object-cover object-[50%_35%]",
     },
   },
   {
@@ -75,8 +79,9 @@ export const insights = [
     ],
     cta: { label: "Learn More", href: "#" },
     image: {
-      src: "/images/person/hero.jpg",
+      src: "/images/person/Research,_Publications_&_Core_Competencies.JPG",
       alt: "Deepak Raj Bhusal",
+      className: "object-cover object-[50%_20%]",
     },
   },
   {

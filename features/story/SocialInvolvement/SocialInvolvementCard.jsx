@@ -1,5 +1,4 @@
 import { SafeImage } from "@/components/ui/safe-image"
-import { resolveUrl } from "@/lib/utils"
 import { ArrowUpRight } from "lucide-react"
 import { MoreButton } from "@/components/shared/MoreButton"
 
@@ -9,7 +8,7 @@ export function SocialInvolvementCard({ title, description, imageUrl }) {
       {/* image: grows to fill the footer's space on hover */}
       <div className="relative min-h-0 overflow-hidden rounded-lg">
         <SafeImage
-          src={resolveUrl(imageUrl)}
+          src={imageUrl}
           alt={title}
           fill
           className="h-full w-full object-cover"

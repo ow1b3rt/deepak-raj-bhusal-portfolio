@@ -6,13 +6,14 @@ export const educationData = {
       title: "Master in Science (MSc. Zoology)",
       description: "Trivuwan University (T.U-Central Campus) - KTM",
       period: "2015",
+      logo: "/images/person/Master's_in_Zoology.jpg",
     },
     {
       id: 2,
       title: "Master in Science (MSc. IT) ",
       description: "Sikkim, Manipal University (SMU) - INDIA",
       period: "2014",
-      logo: "https://picsum.photos/id/1011/200/200",
+      logo: "/images/person/Master's_in_Information_Technology.JPG",
     },
     {
       id: 3,

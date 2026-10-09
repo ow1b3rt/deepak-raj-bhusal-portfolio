@@ -15,8 +15,8 @@ export const featuredVenturesData = {
         "Part of his education sector leadership",
       ],
       image: {
-        src: "/images/person/hero.jpg",
-        alt: "Deepak Raj Bhusal",
+        src: "/images/enlighten_logos/education.png",
+        alt: "Enlighten International Education",
       },
       href: "#",
     },
@@ -31,8 +31,9 @@ export const featuredVenturesData = {
         "Tour package management system project in 2015",
       ],
       image: {
-        src: "/images/person/hero.jpg",
+        src: "/images/enlighten_logos/travels.png",
         alt: "Deepak Raj Bhusal",
+        className: "object-contain",
       },
       href: "#",
     },
@@ -47,8 +48,9 @@ export const featuredVenturesData = {
         "Leadership supported by an academic background in IT",
       ],
       image: {
-        src: "/images/person/hero.jpg",
+        src: "/images/enlighten_logos/infosys.jpg",
         alt: "Deepak Raj Bhusal",
+        className: "object-cover object-[50%_20%]",
       },
       href: "#",
     },
@@ -63,8 +65,9 @@ export const featuredVenturesData = {
         "Focus on skills and vocational training",
       ],
       image: {
-        src: "/images/person/hero.jpg",
+        src: "/images/enlighten_logos/skills.webp",
         alt: "Deepak Raj Bhusal",
+        className: "object-cover object-[50%_20%]",
       },
       href: "#",
     },
