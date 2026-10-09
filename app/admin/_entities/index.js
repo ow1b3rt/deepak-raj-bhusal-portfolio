@@ -4,6 +4,7 @@ import { authors } from "./authors.js"
 import { blogs } from "./blogs.js"
 import { contact } from "./contacts.js"
 import { users } from "./users.js"
+import { gallery } from "./gallery.js"
 
 export const entities = defineEntities({
   //destinations,
@@ -18,5 +19,6 @@ export const entities = defineEntities({
   //services,
   blogs,
   contact,
+  gallery,
   //partners,
 })
