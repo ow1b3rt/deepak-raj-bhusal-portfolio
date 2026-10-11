@@ -3,9 +3,15 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "motion/react"
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaTwitter,
+  FaPinterestP,
+} from "react-icons/fa6"
 
 const easeOut = [0.22, 1, 0.36, 1]
-
 
 const footerData = {
   eyebrow: "LET'S CONNECT",
@@ -18,21 +24,25 @@ const footerData = {
   },
 }
 
+const socials = [
+  { label: "Facebook", href: "https://facebook.com", Icon: FaFacebookF },
+  { label: "LinkedIn", href: "https://linkedin.com", Icon: FaLinkedinIn },
+  { label: "Instagram", href: "https://instagram.com", Icon: FaInstagram },
+  { label: "Twitter", href: "https://twitter.com", Icon: FaTwitter },
+]
 
 export function Footer() {
   const { eyebrow, title, description, cta } = footerData
 
   return (
-    <footer
-      id="connect"
-      className="relative w-full bg-story bg-cover bg-no-repeat px-4 pb-4 sm:px-6 sm:pb-6 lg:px-8 lg:pb-8"
-    >
+    <footer id="connect" className="relative container mx-auto pb-4">
+      {/* ── CTA Card ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, margin: "-80px" }}
         transition={{ duration: 0.8, ease: easeOut }}
-        className="relative container mx-auto overflow-hidden rounded-3xl px-6 py-16 text-center sm:px-10 sm:py-20 md:py-24 lg:rounded-[2.5rem] lg:px-16 lg:py-32"
+        className="red-gradient relative overflow-hidden rounded-2xl px-6 py-16 text-center sm:px-10 sm:py-20 md:py-24 lg:rounded-[2.5rem] lg:px-16 lg:py-32"
       >
         <div
           aria-hidden
@@ -100,6 +110,35 @@ export function Footer() {
           </motion.div>
         </div>
       </motion.div>
+
+      <div className="mt-3 flex items-center justify-between gap-3 px-2 sm:flex-row sm:gap-0">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {socials.map(({ label, href, Icon }) => (
+            <Link
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="flex size-8 items-center justify-center rounded-full border border-foreground/30 text-foreground/70 transition-all duration-200 hover:border-chart-3 hover:text-chart-3 sm:size-9"
+            >
+              <Icon className="size-3.5 sm:size-4" />
+            </Link>
+          ))}
+        </div>
+
+        <p className="text-center text-foreground/70 sm:text-right sm:text-sm">
+          <span className="text-xl font-semibold">
+            {" "}
+            ©All Right Reserved By{" "}
+          </span>
+          <span className="text-xl font-semibold text-chart-3">
+            <a href="https://enlighteninfosys.com/" target="_blank">
+              Enlighten Infosys Pvt. Ltd.{" "}
+            </a>
+          </span>
+        </p>
+      </div>
     </footer>
   )
 }
