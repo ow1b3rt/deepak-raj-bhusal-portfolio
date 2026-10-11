@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import { Geist_Mono, Outfit } from "next/font/google"
 
 import "@/app/globals.css"
@@ -63,6 +64,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+}: {
+  children: ReactNode
 }) {
   return (
     <html
