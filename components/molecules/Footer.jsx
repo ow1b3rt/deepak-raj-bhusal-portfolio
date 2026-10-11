@@ -3,13 +3,7 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "motion/react"
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaInstagram,
-  FaTwitter,
-  FaPinterestP,
-} from "react-icons/fa6"
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaX } from "react-icons/fa6"
 
 const easeOut = [0.22, 1, 0.36, 1]
 
@@ -25,10 +19,22 @@ const footerData = {
 }
 
 const socials = [
-  { label: "Facebook", href: "https://facebook.com", Icon: FaFacebookF },
-  { label: "LinkedIn", href: "https://linkedin.com", Icon: FaLinkedinIn },
-  { label: "Instagram", href: "https://instagram.com", Icon: FaInstagram },
-  { label: "Twitter", href: "https://twitter.com", Icon: FaTwitter },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/deepakraj.bhusal",
+    Icon: FaFacebookF,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://np.linkedin.com/in/deepakraj-bhusal-b173a45b",
+    Icon: FaLinkedinIn,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/bhusaldeepakraj",
+    Icon: FaInstagram,
+  },
+  { label: "Twitter", href: "https://x.com/DeepakRajBhusa1", Icon: FaX },
 ]
 
 export function Footer() {
@@ -119,7 +125,9 @@ export function Footer() {
           viewport={{ once: false, margin: "-40px" }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+            visible: {
+              transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+            },
           }}
         >
           {socials.map(({ label, href, Icon }, i) => (
@@ -131,7 +139,12 @@ export function Footer() {
               aria-label={label}
               variants={{
                 hidden: { opacity: 0, y: 12, scale: 0.75 },
-                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: easeOut } },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 0.45, ease: easeOut },
+                },
               }}
               whileHover={{ scale: 1.2, rotate: 8 }}
               whileTap={{ scale: 0.9 }}

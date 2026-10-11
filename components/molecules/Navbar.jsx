@@ -7,12 +7,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { Menu } from "lucide-react"
 import { motion } from "motion/react"
 import { useLenis } from "lenis/react"
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaInstagram,
-  FaTwitter,
-} from "react-icons/fa6"
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaX } from "react-icons/fa6"
 
 import { cn } from "@/lib/utils"
 
@@ -40,7 +35,7 @@ const socials = [
   { label: "Facebook", href: "https://facebook.com", Icon: FaFacebookF },
   { label: "LinkedIn", href: "https://linkedin.com", Icon: FaLinkedinIn },
   { label: "Instagram", href: "https://instagram.com", Icon: FaInstagram },
-  { label: "Twitter", href: "https://twitter.com", Icon: FaTwitter },
+  { label: "Twitter", href: "https://twitter.com", Icon: FaX },
 ]
 
 export function Navbar() {
@@ -80,7 +75,9 @@ export function Navbar() {
           (entries) => {
             const visible = entries
               .filter((e) => e.isIntersecting)
-              .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+              .sort(
+                (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
+              )
 
             if (visible[0]) setActiveId(visible[0].target.id)
           },
