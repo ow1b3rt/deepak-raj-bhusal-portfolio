@@ -68,8 +68,10 @@ function RadioOption({
         onChange={onChange}
         className="peer sr-only"
       />
-      <div className="border-muted-foreground/30 h-6 w-6 rounded-full border-2 transition-all duration-200 peer-checked:border-[7px] peer-checked:border-primary" />
-      <span className="text-foreground text-sm font-medium sm:text-base">{option.label}</span>
+      <div className="h-6 w-6 rounded-full border-2 border-muted-foreground/30 transition-all duration-200 peer-checked:border-[7px] peer-checked:border-primary" />
+      <span className="text-sm font-medium text-foreground sm:text-base">
+        {option.label}
+      </span>
     </label>
   )
 }
@@ -149,12 +151,9 @@ export function ConnectForm({
       {sections.map((section, sectionIndex) => (
         <AnimatedSection key={section.id} delay={sectionIndex * 0.08}>
           <section
-            className={cn(
-              "py-8",
-              sectionIndex > 0 && "border-border border-t"
-            )}
+            className={cn("py-8", sectionIndex > 0 && "border-t border-border")}
           >
-            <h2 className="text-foreground mb-6 text-xl font-bold sm:text-[21px]">
+            <h2 className="mb-6 text-xl font-bold text-foreground sm:text-[21px]">
               {section.title}
             </h2>
 
@@ -172,7 +171,9 @@ export function ConnectForm({
                       key={field.name}
                       className={cn(
                         "space-y-4",
-                        section.gridCols && field.colSpan === "full" && "md:col-span-2"
+                        section.gridCols &&
+                          field.colSpan === "full" &&
+                          "md:col-span-2"
                       )}
                     >
                       {field.options?.map((option) => (
@@ -181,7 +182,9 @@ export function ConnectForm({
                           name={field.name}
                           option={option}
                           checked={formData[field.name] === option.value}
-                          onChange={() => handleChange(field.name, option.value)}
+                          onChange={() =>
+                            handleChange(field.name, option.value)
+                          }
                         />
                       ))}
                       {errors[field.name] && (
@@ -199,7 +202,9 @@ export function ConnectForm({
                       key={field.name}
                       className={cn(
                         "space-y-2",
-                        section.gridCols && field.colSpan === "full" && "md:col-span-2"
+                        section.gridCols &&
+                          field.colSpan === "full" &&
+                          "md:col-span-2"
                       )}
                     >
                       <Textarea
@@ -207,7 +212,9 @@ export function ConnectForm({
                         name={field.name}
                         placeholder={field.placeholder}
                         value={formData[field.name] || ""}
-                        onChange={(e) => handleChange(field.name, e.target.value)}
+                        onChange={(e) =>
+                          handleChange(field.name, e.target.value)
+                        }
                         required={field.required}
                         className="min-h-[200px] w-full resize-none rounded-lg px-4 py-3 text-sm sm:text-base"
                       />
@@ -220,10 +227,15 @@ export function ConnectForm({
                     key={field.name}
                     className={cn(
                       "space-y-2",
-                      section.gridCols && field.colSpan === "full" && "md:col-span-2"
+                      section.gridCols &&
+                        field.colSpan === "full" &&
+                        "md:col-span-2"
                     )}
                   >
-                    <Label htmlFor={field.name} className="text-sm font-semibold sm:text-base">
+                    <Label
+                      htmlFor={field.name}
+                      className="text-sm font-semibold sm:text-base"
+                    >
                       {field.label}
                     </Label>
                     <Input
@@ -247,12 +259,12 @@ export function ConnectForm({
 
       {/* Submit */}
       <AnimatedSection delay={sections.length * 0.08}>
-        <div className="border-border border-t pt-6 flex justify-end">
+        <div className="flex justify-end border-t border-border pt-6">
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
             <Button
               type="submit"
               disabled={loading}
-              className="bg-primary hover:bg-primary/90 h-11 min-w-[160px] cursor-pointer rounded-lg px-6 text-sm font-semibold text-primary-foreground shadow-md transition-colors disabled:cursor-not-allowed disabled:opacity-60 sm:h-12 sm:text-base"
+              className="h-11 min-w-[160px] cursor-pointer rounded-lg bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-md transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60 sm:h-12 sm:text-base"
             >
               {loading ? (
                 <span className="flex items-center gap-2">
