@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function StoryPage() {
   return (
-    <div className='flex flex-col py-2 gap-20'>
+    <div className='flex flex-col py-2 gap-20 container mx-auto px-4 xl:px-0'>
       <StoryGrid />
       <ProfessionalJourney />
       <EducationList />

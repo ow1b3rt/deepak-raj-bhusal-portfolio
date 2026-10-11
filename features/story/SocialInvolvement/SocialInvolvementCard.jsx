@@ -4,7 +4,7 @@ import { MoreButton } from "@/components/shared/MoreButton"
 
 export function SocialInvolvementCard({ title, description, imageUrl }) {
   return (
-    <div className="group grid aspect-[4/5] grid-rows-[5fr_1fr] overflow-hidden rounded-lg bg-white transition-[grid-template-rows] duration-300 ease-in-out hover:grid-rows-[1fr_0fr]">
+    <div className="group grid aspect-4/5 grid-rows-[5fr_1fr] overflow-hidden rounded-lg bg-white transition-[grid-template-rows] pb-2 duration-300 ease-in-out hover:grid-rows-[1fr_0fr]">
       {/* image: grows to fill the footer's space on hover */}
       <div className="relative min-h-0 overflow-hidden rounded-lg">
         <SafeImage
@@ -29,7 +29,7 @@ export function SocialInvolvementCard({ title, description, imageUrl }) {
 
       {/* footer: collapses to 0 height on hover */}
       <div className="min-h-0 overflow-hidden transition-opacity duration-300 group-hover:opacity-0">
-        <h2 className="line-clamp-2 p-4 text-2xl font-bold">{title}</h2>
+        <h2 className="line-clamp-2 p-4 text-sm md:text-lg xl:text-2xl font-bold">{title}</h2>
       </div>
     </div>
   )

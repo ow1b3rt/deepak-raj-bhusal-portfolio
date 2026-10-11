@@ -119,7 +119,7 @@ export function Navbar() {
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-4 z-50 flex w-full justify-center px-4"
+      className="sticky top-4 z-50 flex w-full justify-center px-1 lg:px-4"
     >
       <nav
         className={cn(

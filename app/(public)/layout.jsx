@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}) {
   return (
     <html
       lang="en"
@@ -77,10 +77,11 @@ export default function RootLayout({
         <GlowCard />
         <SmoothScroll>
           <Navbar />
-          <main className="px-4 pt-8">
-            <div className="container mx-auto">{children}</div>
+          <main className="pt-8">
+            <div className="">{children}</div>
           </main>
           <Footer />
+          
           <ScrollToTop />
         </SmoothScroll>
         <Toaster richColors position="top-right" />
