@@ -1,6 +1,19 @@
 import { Heading } from "@/components/shared/Heading";
 import { galleryData, galleryFetcher, GalleryGrid } from "@/features/gallery";
 
+export const metadata = {
+  title: "Media Gallery",
+  description:
+    "Browse photos and media highlights from Deepak Raj Bhusal's events, ventures, and community initiatives.",
+  alternates: { canonical: "/media" },
+  openGraph: {
+    title: "Media Gallery | Deepak Raj Bhusal",
+    description:
+      "Photos and media highlights from Deepak Raj Bhusal's events, ventures, and community initiatives.",
+    url: "/media",
+  },
+}
+
 export default async function GalleryPage() {
   const data = await galleryFetcher() || galleryData;
   console.log(data)

@@ -1,6 +1,19 @@
 import { fetchBlogs, BlogList } from "@/features/Blogs";
 import { Heading } from "@/components/shared/Heading";
 
+export const metadata = {
+  title: "Blogs",
+  description:
+    "Read the latest articles and insights from Deepak Raj Bhusal on entrepreneurship, education, leadership, travel, technology, and community development.",
+  alternates: { canonical: "/blogs" },
+  openGraph: {
+    title: "Blogs | Deepak Raj Bhusal",
+    description:
+      "Articles and insights on entrepreneurship, education, leadership, travel, technology, and community development.",
+    url: "/blogs",
+  },
+}
+
 export default async function Page() {
   const blogs = await fetchBlogs();
 

@@ -41,7 +41,7 @@ export function Footer() {
   const { eyebrow, title, description, cta } = footerData
 
   return (
-    <footer id="connect" className="relative container mx-auto pb-4">
+    <footer id="connect" className="relative container mx-auto pb-6">
       {/* ── CTA Card ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -117,12 +117,14 @@ export function Footer() {
         </div>
       </motion.div>
 
-      <div className="mt-3 flex items-center justify-between gap-3 px-2 sm:flex-row sm:gap-0">
+      {/* ── Socials + Copyright ── */}
+      <div className="mt-4 flex flex-col items-center gap-4 px-2 md:mt-5 md:flex-row md:justify-between md:gap-6">
+        {/* Socials */}
         <motion.div
-          className="flex items-center gap-2 sm:gap-3"
+          className="flex items-center justify-center gap-2 sm:gap-3"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={{
             hidden: {},
             visible: {
@@ -130,7 +132,7 @@ export function Footer() {
             },
           }}
         >
-          {socials.map(({ label, href, Icon }, i) => (
+          {socials.map(({ label, href, Icon }) => (
             <motion.a
               key={label}
               href={href}
@@ -148,29 +150,30 @@ export function Footer() {
               }}
               whileHover={{ scale: 1.2, rotate: 8 }}
               whileTap={{ scale: 0.9 }}
-              className="flex size-8 items-center justify-center rounded-full border border-foreground/30 text-foreground/70 transition-colors duration-200 hover:border-chart-3 hover:text-chart-3 sm:size-9"
+              className="flex size-9 items-center justify-center rounded-full border border-foreground/30 text-foreground/70 transition-colors duration-200 hover:border-chart-3 hover:text-chart-3 md:size-10"
             >
-              <Icon className="size-3.5 sm:size-4" />
+              <Icon className="size-4 md:size-[18px]" />
             </motion.a>
           ))}
         </motion.div>
 
+        {/* Copyright */}
         <motion.p
-          className="text-center text-foreground/70 sm:text-right sm:text-sm"
-          initial={{ opacity: 0, x: 24 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, margin: "-40px" }}
+          className="text-center text-sm leading-snug text-foreground/70 sm:text-base md:text-right lg:text-lg"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, delay: 0.2, ease: easeOut }}
         >
-          <span className="text-xl font-semibold">
-            {" "}
-            ©All Right Reserved By{" "}
-          </span>
-          <span className="text-xl font-semibold text-chart-3">
-            <a href="https://enlighteninfosys.com/" target="_blank">
-              Enlighten Infosys Pvt. Ltd.{" "}
-            </a>
-          </span>
+          <span className="font-semibold">© All Rights Reserved By </span>
+          <a
+            href="https://enlighteninfosys.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-chart-3 hover:underline"
+          >
+            Enlighten Infosys Pvt. Ltd.
+          </a>
         </motion.p>
       </div>
     </footer>
