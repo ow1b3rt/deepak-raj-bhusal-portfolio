@@ -112,22 +112,43 @@ export function Footer() {
       </motion.div>
 
       <div className="mt-3 flex items-center justify-between gap-3 px-2 sm:flex-row sm:gap-0">
-        <div className="flex items-center gap-2 sm:gap-3">
-          {socials.map(({ label, href, Icon }) => (
-            <Link
+        <motion.div
+          className="flex items-center gap-2 sm:gap-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "-40px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+          }}
+        >
+          {socials.map(({ label, href, Icon }, i) => (
+            <motion.a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="flex size-8 items-center justify-center rounded-full border border-foreground/30 text-foreground/70 transition-all duration-200 hover:border-chart-3 hover:text-chart-3 sm:size-9"
+              variants={{
+                hidden: { opacity: 0, y: 12, scale: 0.75 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: easeOut } },
+              }}
+              whileHover={{ scale: 1.2, rotate: 8 }}
+              whileTap={{ scale: 0.9 }}
+              className="flex size-8 items-center justify-center rounded-full border border-foreground/30 text-foreground/70 transition-colors duration-200 hover:border-chart-3 hover:text-chart-3 sm:size-9"
             >
               <Icon className="size-3.5 sm:size-4" />
-            </Link>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
 
-        <p className="text-center text-foreground/70 sm:text-right sm:text-sm">
+        <motion.p
+          className="text-center text-foreground/70 sm:text-right sm:text-sm"
+          initial={{ opacity: 0, x: 24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.2, ease: easeOut }}
+        >
           <span className="text-xl font-semibold">
             {" "}
             ©All Right Reserved By{" "}
@@ -137,7 +158,7 @@ export function Footer() {
               Enlighten Infosys Pvt. Ltd.{" "}
             </a>
           </span>
-        </p>
+        </motion.p>
       </div>
     </footer>
   )
