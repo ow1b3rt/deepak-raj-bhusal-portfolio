@@ -9,19 +9,21 @@ import {
 
 const classname = `
   grid
-  bg-red-50
+  container
+  mx-auto  
+ 
   gap-4
   [&>div]:rounded-lg
   w-full
-
-  [grid-template-columns:1fr_4fr]
-  [grid-template-rows:auto_50vw_20vw_auto_auto_auto]
-  [grid-template-areas:'s3_s3'_'s2_s2'_'s7_s5'_'s1_s1'_'s4_s4'_'s6_s6']
-
-  md:[grid-template-columns:3fr_1fr_4fr_4fr]
-  md:[grid-template-rows:5fr_2fr_1fr]
-  md:[grid-template-areas:'s1_s2_s2_s3'_'s4_s4_s5_s3'_'s4_s4_s6_s6']
-`;
+  py-4
+  grid-cols-[1fr_4fr]
+  grid-rows-[60vw_40vw_auto_auto_auto_auto]
+  min-[432px]:grid-rows-[50vw_20vw_auto_auto_auto_auto]
+  [grid-template-areas:'s2_s2'_'s7_s5'_'s3_s3'_'s1_s1'_'s4_s4'_'s6_s6']
+  lg:grid-cols-[3fr_1fr_4fr_4fr]
+  lg:grid-rows-[5fr_2fr_1fr]
+  lg:[grid-template-areas:'s1_s2_s2_s3'_'s4_s4_s5_s3'_'s4_s4_s6_s6']
+`
 
 export function StoryGrid({ stories }) {
   return (

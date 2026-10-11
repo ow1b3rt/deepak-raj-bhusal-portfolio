@@ -32,7 +32,7 @@ function BottomContent() {
 
 export function ProfessionalJourney() {
   return (
-    <div className='grid grid-cols-1 gap-10 md:grid-cols-[2fr_3fr] my-6'>
+    <div className='grid grid-cols-1 gap-10 lg:grid-cols-[2fr_3fr] my-6'>
       <PhotoStat
         photo='https://picsum.photos/id/1050/800/800'
         bottomContent={<BottomContent />}
