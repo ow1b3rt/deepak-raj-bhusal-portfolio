@@ -5,5 +5,5 @@ import "@/admin.config.js";
 import { LoginPage } from "@/packages/admin";
 
 export default function Page() {
-  return <LoginPage />;
+  return <LoginPage redirectTo='/admin/blogs' />;
 }

@@ -102,7 +102,7 @@ export function LoginPage({ loginUrl = "/auth/login", redirectTo = "/admin/dashb
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-brand-red mt-2 cursor-pointer rounded-md px-4 py-2 text-base font-medium text-white transition duration-500 ease-in-out hover:bg-gray-800 disabled:opacity-50"
+                className="bg-black mt-2 cursor-pointer rounded-md px-4 py-2 text-base font-medium text-white transition duration-500 ease-in-out hover:bg-gray-800 disabled:opacity-50"
               >
                 {loading ? "Logging in..." : "Log in"}
               </button>
