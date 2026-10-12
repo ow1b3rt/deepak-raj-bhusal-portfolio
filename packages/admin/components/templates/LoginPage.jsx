@@ -51,7 +51,13 @@ export function LoginPage({ loginUrl = "/auth/login", redirectTo = "/admin/dashb
           direction="right"
           className="relative flex w-1/2! items-center justify-center md:p-8"
         >
-          <SafeImage src="/images/web-logo.png" alt="Logo" width={900} height={1600} fill={false} />
+          <SafeImage
+            src="/images/web-logo.png"
+            alt="Logo"
+            width={900}
+            height={1600}
+            fill={false}
+          />
         </AnimatedCard>
 
         <div className="flex w-full flex-col justify-between gap-8 px-4 py-4 md:w-1/2 md:px-8">
@@ -61,12 +67,20 @@ export function LoginPage({ loginUrl = "/auth/login", redirectTo = "/admin/dashb
             direction="left"
             className="flex flex-col gap-2"
           >
-            <h1 className="text-dark-orange text-2xl font-semibold md:text-4xl">Admin Login</h1>
-            <p className="text-gray text-sm md:text-lg">Login to your admin panel</p>
+            <h1 className="text-dark-orange text-2xl font-semibold md:text-4xl">
+              Admin Login
+            </h1>
+            <p className="text-gray text-sm md:text-lg">
+              Login to your DRB Portfolio Admin Dashboard
+            </p>
           </AnimatedCard>
 
           <Form onSubmit={handleSubmit} className="flex w-full flex-col gap-4">
-            <AnimatedCard direction="down" triggerOnView className="flex flex-col gap-4">
+            <AnimatedCard
+              direction="down"
+              triggerOnView
+              className="flex flex-col gap-4"
+            >
               <Input
                 inputClassName="text-primary-blue text-lg!"
                 name="email"
@@ -93,9 +107,9 @@ export function LoginPage({ loginUrl = "/auth/login", redirectTo = "/admin/dashb
                   className="text-dark-orange hover:text-primary-blue absolute right-3 bottom-3 flex size-5 cursor-pointer items-center justify-center"
                 >
                   {showPassword ? (
-                    <EyeOff className="text-primary-green-dark" size={24} />
+                    <EyeOff className="text-chart-4" size={24} />
                   ) : (
-                    <Eye size={18} className="text-primary-green-dark" />
+                    <Eye size={18} className="text-chart-4" />
                   )}
                 </button>
               </div>
@@ -111,5 +125,5 @@ export function LoginPage({ loginUrl = "/auth/login", redirectTo = "/admin/dashb
         </div>
       </AnimatedCard>
     </div>
-  );
+  )
 }

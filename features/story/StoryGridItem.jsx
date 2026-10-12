@@ -15,7 +15,7 @@ export function StoryGridItem({ gridArea }) {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`bg-black text-white p-6 ${gridArea}`}
     >
-      <h2 className="text-6xl font-extrabold mb-6">Short Story</h2>
+      <h2 className="text-2xl lg:text-4xl xl:text-6xl font-extrabold mb-6">Short Story</h2>
       <Paragraph text={storyText} />
     </motion.div>
   );

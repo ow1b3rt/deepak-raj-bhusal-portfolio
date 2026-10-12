@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import { Geist_Mono, Outfit } from "next/font/google"
 
 import "@/app/globals.css"
@@ -16,9 +18,55 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://deepakrajbhusal.com"
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default:
+      "Deepak Raj Bhusal | Entrepreneur, Social Activist & Philanthropist",
+    template: "%s | Deepak Raj Bhusal",
+  },
+  description:
+    "Official website of Deepak Raj Bhusal — entrepreneur, social activist, and philanthropist from Nepal. Explore his journey across education, travel, technology, hospitality, and community service.",
+  keywords: [
+    "Deepak Raj Bhusal",
+    "Enlighten Group",
+    "Nepali entrepreneur",
+    "social activist Nepal",
+    "philanthropist Nepal",
+    "business leadership",
+    "education Nepal",
+  ],
+  authors: [{ name: "Deepak Raj Bhusal" }],
+  creator: "Deepak Raj Bhusal",
+  openGraph: {
+    type: "website",
+    siteName: "Deepak Raj Bhusal",
+    locale: "en_US",
+    url: siteUrl,
+    title:
+      "Deepak Raj Bhusal | Entrepreneur, Social Activist & Philanthropist",
+    description:
+      "Official website of Deepak Raj Bhusal — entrepreneur, social activist, and philanthropist from Nepal.",
+    images: [{ url: "/images/person/hero.jpg", alt: "Deepak Raj Bhusal" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Deepak Raj Bhusal | Entrepreneur, Social Activist & Philanthropist",
+    description:
+      "Official website of Deepak Raj Bhusal — entrepreneur, social activist, and philanthropist from Nepal.",
+    images: ["/images/person/hero.jpg"],
+  },
+}
+
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: ReactNode
+}) {
   return (
     <html
       lang="en"
@@ -32,10 +80,11 @@ export default function RootLayout({
         <GlowCard />
         <SmoothScroll>
           <Navbar />
-          <main className='pt-8 px-4'>
-            <div className="mx-auto container">{children}</div>
+          <main className="pt-8">
+            <div className="">{children}</div>
           </main>
           <Footer />
+          
           <ScrollToTop />
         </SmoothScroll>
         <Toaster richColors position="top-right" />

@@ -3,9 +3,9 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "motion/react"
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaX } from "react-icons/fa6"
 
 const easeOut = [0.22, 1, 0.36, 1]
-
 
 const footerData = {
   eyebrow: "LET'S CONNECT",
@@ -18,21 +18,37 @@ const footerData = {
   },
 }
 
+const socials = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/deepakraj.bhusal",
+    Icon: FaFacebookF,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://np.linkedin.com/in/deepakraj-bhusal-b173a45b",
+    Icon: FaLinkedinIn,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/bhusaldeepakraj",
+    Icon: FaInstagram,
+  },
+  { label: "Twitter", href: "https://x.com/DeepakRajBhusa1", Icon: FaX },
+]
 
 export function Footer() {
   const { eyebrow, title, description, cta } = footerData
 
   return (
-    <footer
-      id="connect"
-      className="relative w-full bg-story bg-cover bg-no-repeat px-4 pb-4 sm:px-6 sm:pb-6 lg:px-8 lg:pb-8"
-    >
+    <footer id="connect" className="relative container mx-auto pb-6">
+      {/* ── CTA Card ── */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, margin: "-80px" }}
         transition={{ duration: 0.8, ease: easeOut }}
-        className="relative container mx-auto overflow-hidden rounded-3xl px-6 py-16 text-center sm:px-10 sm:py-20 md:py-24 lg:rounded-[2.5rem] lg:px-16 lg:py-32"
+        className="red-gradient relative overflow-hidden rounded-2xl px-6 py-16 text-center sm:px-10 sm:py-20 md:py-24 lg:rounded-[2.5rem] lg:px-16 lg:py-32"
       >
         <div
           aria-hidden
@@ -100,6 +116,66 @@ export function Footer() {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* ── Socials + Copyright ── */}
+      <div className="mt-4 flex flex-col items-center gap-4 px-2 md:mt-5 md:flex-row md:justify-between md:gap-6">
+        {/* Socials */}
+        <motion.div
+          className="flex items-center justify-center gap-2 sm:gap-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+            },
+          }}
+        >
+          {socials.map(({ label, href, Icon }) => (
+            <motion.a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              variants={{
+                hidden: { opacity: 0, y: 12, scale: 0.75 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 0.45, ease: easeOut },
+                },
+              }}
+              whileHover={{ scale: 1.2, rotate: 8 }}
+              whileTap={{ scale: 0.9 }}
+              className="flex size-9 items-center justify-center rounded-full border border-foreground/30 text-foreground/70 transition-colors duration-200 hover:border-chart-3 hover:text-chart-3 md:size-10"
+            >
+              <Icon className="size-4 md:size-[18px]" />
+            </motion.a>
+          ))}
+        </motion.div>
+
+        {/* Copyright */}
+        <motion.p
+          className="text-center text-sm leading-snug text-foreground/70 sm:text-base md:text-right lg:text-lg"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: easeOut }}
+        >
+          <span className="font-semibold">© All Rights Reserved By </span>
+          <a
+            href="https://enlighteninfosys.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-chart-3 hover:underline"
+          >
+            Enlighten Infosys Pvt. Ltd.
+          </a>
+        </motion.p>
+      </div>
     </footer>
   )
 }

@@ -1,7 +1,51 @@
 import { ArticleBody } from "@/components/shared/ArticleBody";
 import { SafeImage } from "@/components/ui/safe-image";
-import { resolveUrl, capitalise, localDate } from "@/lib/utils";
+import { resolveUrl, capitalise, localDate, stripHtml } from "@/lib/utils";
 import { fetchSingleBlog } from "@/features/Blogs/fetchBlogs";
+
+function toDescription(blog) {
+  const text = stripHtml(blog.content).replace(/\s+/g, " ").trim();
+  if (!text) {
+    return `Read "${blog.title}" by Deepak Raj Bhusal.`;
+  }
+  return text.length > 160 ? `${text.slice(0, 157).trimEnd()}...` : text;
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const blog = await fetchSingleBlog(slug);
+
+  if (!blog) {
+    return {
+      title: "Blog Not Found",
+      description: "The requested blog post could not be found.",
+    };
+  }
+
+  const description = toDescription(blog);
+  const image = resolveUrl(blog.mediaUrl);
+
+  return {
+    title: blog.title,
+    description,
+    alternates: { canonical: `/blogs/${slug}` },
+    openGraph: {
+      type: "article",
+      title: blog.title,
+      description,
+      url: `/blogs/${slug}`,
+      publishedTime: blog.publishedAt,
+      authors: blog.authorName ? [capitalise(blog.authorName)] : undefined,
+      images: image ? [{ url: image, alt: blog.mediaAlt || blog.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description,
+      images: image ? [image] : undefined,
+    },
+  };
+}
 
 export default async function BlogPage({ params }) {
   const { slug } = await params;
