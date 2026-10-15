@@ -56,7 +56,7 @@ export default async function BlogPage({ params }) {
   }
 
   return (
-    <div className="flow-root mt-10">
+    <div className="container mx-auto px-20 flow-root mt-10">
       {/* child 1: photo, must come BEFORE the text in the DOM */}
       <div className="relative mb-6  w-full overflow-hidden rounded-3xl lg:float-right lg:mb-6 lg:ml-8 lg:w-1/3">
         <SafeImage
