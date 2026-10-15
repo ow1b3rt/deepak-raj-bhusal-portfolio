@@ -97,6 +97,7 @@ function VentureItem({
 
                 <Link
                   href={venture.href}
+                  target="_blank" rel="noopener noreferrer"
                   className="group mt-6 inline-flex h-10 items-center gap-2 rounded-lg bg-chart-3 px-5 text-primary-foreground hover:bg-chart-3/90 lg:mt-8"
                 >
                   Learn More
