@@ -32,11 +32,24 @@ const LEFT_LINKS = navLinks.slice(0, 3)
 const RIGHT_LINKS = navLinks.slice(3)
 
 const socials = [
-  { label: "Facebook", href: "https://facebook.com", Icon: FaFacebookF },
-  { label: "LinkedIn", href: "https://linkedin.com", Icon: FaLinkedinIn },
-  { label: "Instagram", href: "https://instagram.com", Icon: FaInstagram },
-  { label: "Twitter", href: "https://twitter.com", Icon: FaX },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/deepakraj.bhusal",
+    Icon: FaFacebookF,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://np.linkedin.com/in/deepakraj-bhusal-b173a45b",
+    Icon: FaLinkedinIn,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/bhusaldeepakraj",
+    Icon: FaInstagram,
+  },
+  { label: "Twitter", href: "https://x.com/DeepakRajBhusa1", Icon: FaX },
 ]
+
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false)

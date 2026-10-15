@@ -18,7 +18,7 @@ export const featuredVenturesData = {
         src: "/images/enlighten_logos/education.png",
         alt: "Enlighten International Education",
       },
-      href: "#",
+      href: "https://enlighten.edu.np",
     },
     {
       id: "02",
@@ -35,7 +35,7 @@ export const featuredVenturesData = {
         alt: "Deepak Raj Bhusal",
         className: "object-contain",
       },
-      href: "#",
+      href: "https://enlightentravels.com.np",
     },
     {
       id: "03",
@@ -52,7 +52,7 @@ export const featuredVenturesData = {
         alt: "Deepak Raj Bhusal",
         className: "object-cover object-[50%_20%]",
       },
-      href: "#",
+      href: "https://enlighteninfosys.com",
     },
     {
       id: "04",
@@ -69,7 +69,7 @@ export const featuredVenturesData = {
         alt: "Deepak Raj Bhusal",
         className: "object-cover object-[50%_20%]",
       },
-      href: "#",
+      href: "https://enlightentrainingcenter.com",
     },
   ],
 }

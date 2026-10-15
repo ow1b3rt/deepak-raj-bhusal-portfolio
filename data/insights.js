@@ -9,7 +9,7 @@ export const insights = [
       "Executive Chairman of Enlighten Infosys and Godawari Panoromic Resort since 2021",
       "Leadership roles at Sarangkot Corporate Group, Adhrsheela College, Manasi Kids Palace, Enlighten Skills and Vocational Training Center, and Enlighten Leaf",
     ],
-    cta: { label: "Learn More", href: "#" },
+    //cta: { label: "Learn More", href: "#" },
     image: {
       src: "/images/person/Entrepreneurship_&_Business_Leadership.JPG",
       alt: "Deepak Raj Bhusal",
@@ -26,7 +26,7 @@ export const insights = [
       "BSc in Zoology from Butwal Multiple Campus in 2008",
       "Training through NCCS, TITI, ICEF, PIER, and the British Council, alongside US agent and Japan travel specialist courses",
     ],
-    cta: { label: "Learn More", href: "#" },
+    //cta: { label: "Learn More", href: "#" },
     image: {
       src: "/images/person/Education_&_Professional_Development.JPG",
       alt: "Deepak Raj Bhusal",
@@ -43,7 +43,7 @@ export const insights = [
       "ECAN Secretary from 2016 to 2019 and Executive Member from 2013 to 2016",
       "Affiliations with CAN Federation, ITS-Nepal, IUNC, ZOOSAN, WEBA, and Study Travel Network",
     ],
-    cta: { label: "Learn More", href: "#" },
+    //cta: { label: "Learn More", href: "#" },
     image: {
       src: "/images/person/Professional_Associations_&_Industry_Leadership.JPG",
       alt: "Deepak Raj Bhusal",
@@ -60,7 +60,7 @@ export const insights = [
       "President of Balaju Jaycees Kathmandu in 2017 and Lions Club of Kathmandu Basistha Global for 2024/2025",
       "Community involvement through school and forest management committees, Western Region Development Forum, and Bhusal Samaj",
     ],
-    cta: { label: "Learn More", href: "#" },
+    //cta: { label: "Learn More", href: "#" },
     image: {
       src: "/images/person/Social_Service_&_Community_Involvement.jpg",
       alt: "Deepak Raj Bhusal",
@@ -77,7 +77,7 @@ export const insights = [
       "Enlighten Tour Package Management Information System in 2015 and Vehicle Entry Management Information System in 2014",
       "Skills in advocacy, budgeting, branding, negotiation, critical thinking, and research analysis",
     ],
-    cta: { label: "Learn More", href: "#" },
+    //cta: { label: "Learn More", href: "#" },
     image: {
       src: "/images/person/Research,_Publications_&_Core_Competencies.JPG",
       alt: "Deepak Raj Bhusal",
@@ -94,7 +94,7 @@ export const insights = [
       "J-conference and college and university visits in Tokyo in 2017, followed by FICCI workshops and a conference in New Delhi in 2022",
       "Workshops and tourism visits in Da Nang and Hanoi, Vietnam, in June 2025",
     ],
-    cta: { label: "Learn More", href: "#" },
+    //cta: { label: "Learn More", href: "#" },
     image: {
       src: "/images/person/hero.jpg",
       alt: "Deepak Raj Bhusal",
