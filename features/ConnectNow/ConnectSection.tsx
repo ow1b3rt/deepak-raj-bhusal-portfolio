@@ -143,7 +143,7 @@ export function ConnectSection() {
           <h1 className="text-4xl leading-tight font-bold text-foreground sm:text-5xl">
             Let&apos;s Connect
           </h1>
-          <p className="mt-3 text-sm text-primary sm:text-base">
+          <p className="mt-3 text-sm font-semibold text-primary md:text-base">
             Have an idea, opportunity, or collaboration in mind? Let&apos;s
             start a conversation.
           </p>
