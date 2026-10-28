@@ -7,7 +7,13 @@ import { usePathname, useRouter } from "next/navigation"
 import { Menu } from "lucide-react"
 import { motion } from "motion/react"
 import { useLenis } from "lenis/react"
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaX } from "react-icons/fa6"
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaX,
+  FaYoutube,
+} from "react-icons/fa6"
 
 import { cn } from "@/lib/utils"
 
@@ -18,6 +24,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { SiGmail } from "react-icons/si"
 
 const navLinks = [
   { label: "Home", id: "home" },
@@ -47,9 +54,25 @@ const socials = [
     href: "https://www.instagram.com/bhusaldeepakraj",
     Icon: FaInstagram,
   },
-  { label: "Twitter", href: "https://x.com/DeepakRajBhusa1", Icon: FaX },
-]
+  {
+    label: "Twitter",
 
+    href: "https://x.com/DeepakRajBhusa1",
+    Icon: FaX,
+  },
+  {
+    label: "Youtube",
+    href: "https://www.youtube.com/@deepakrajbhusal21",
+
+    Icon: FaYoutube,
+  },
+  {
+    label: "Gmail",
+    href: "mailto:contact@deepakrajbhusal.com",
+
+    Icon: SiGmail,
+  },
+]
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false)

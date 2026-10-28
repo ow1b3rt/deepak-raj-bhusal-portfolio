@@ -3,7 +3,16 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "motion/react"
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaX } from "react-icons/fa6"
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaX,
+  FaYoutube,
+  FaEnvelope,
+} from "react-icons/fa6"
+
+import { SiGmail } from "react-icons/si"
 
 const easeOut = [0.22, 1, 0.36, 1]
 
@@ -34,7 +43,23 @@ const socials = [
     href: "https://www.instagram.com/bhusaldeepakraj",
     Icon: FaInstagram,
   },
-  { label: "Twitter", href: "https://x.com/DeepakRajBhusa1", Icon: FaX },
+  {
+    label: "Twitter",
+    href: "https://x.com/DeepakRajBhusa1",
+    Icon: FaX,
+  },
+
+  {
+    label: "Youtube",
+    href: "https://www.youtube.com/@deepakrajbhusal21",
+
+    Icon: FaYoutube,
+  },
+  {
+    label: "Gmail",
+    href: "mailto:contact@deepakrajbhusal.com",
+    Icon: SiGmail,
+  },
 ]
 
 export function Footer() {

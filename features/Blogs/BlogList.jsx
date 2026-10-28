@@ -2,7 +2,7 @@ import { BlogCard } from "./BlogCard"
 
 export function BlogList({ blogs }) {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="container mx-auto flex flex-col gap-10">
       {blogs.map((blog) => (
         <BlogCard
           key={blog.id}
