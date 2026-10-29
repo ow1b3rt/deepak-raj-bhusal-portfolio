@@ -6,6 +6,9 @@ import { contact } from "./contacts.js"
 import { partnership } from "./partnerships.js"
 import { users } from "./users.js"
 import { gallery } from "./gallery.js"
+import { jobs } from "./jobs.js"
+import { careers } from "./careers.js"
+import { articles } from "./articles.js"
 
 export const entities = defineEntities({
   //destinations,
@@ -22,5 +25,8 @@ export const entities = defineEntities({
   contact,
   partnership,
   gallery,
+  jobs,
+  careers,
+  articles,
   //partners,
 })

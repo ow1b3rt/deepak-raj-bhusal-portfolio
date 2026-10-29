@@ -1,0 +1,120 @@
+import { defineEntity } from "@/packages/admin/index.jsx"
+import { Users } from "lucide-react"
+
+export const careers = defineEntity({
+  slug: "careers",
+  label: "Candidates",
+  icon: Users,
+  titleField: "title",
+  roles: ["admin", "staff"],
+  addNew: false,
+  fields: [
+    { name: "full_name", type: "text", label: "Full Name", required: true },
+    {
+      name: "jobTitle:job-link",
+      type: "text",
+      label: "Applied For",
+      required: true,
+    },
+    {
+      name: "job_id",
+      type: "text",
+      label: "Job Id",
+      required: true,
+      invisible: true,
+    },
+    {
+      name: "description:textarea",
+      type: "textarea",
+      label: "Applicants Description",
+      required: true,
+      invisible: true,
+    },
+    { name: "email:email", type: "email", label: "Email", required: true },
+    { name: "phone:phone", type: "tel", label: "Phone Number" },
+    {
+      name: "applicationType",
+      type: "text",
+      label: "Employment Type",
+      invisible: true,
+    },
+    { name: "location", type: "text", label: "Location", invisible: true },
+    { name: "portfolio", type: "text", label: "Portfolio", invisible: true },
+    {
+      name: "highestQualification",
+      type: "text",
+      label: "Highest Qualification",
+      invisible: true,
+    },
+    {
+      name: "fieldOfStudy",
+      type: "text",
+      label: "Field of Study",
+      invisible: true,
+    },
+    {
+      name: "institutionName",
+      type: "text",
+      label: "Institution",
+      invisible: true,
+    },
+    {
+      name: "graduationYear",
+      type: "text",
+      label: "Graduation Year",
+      invisible: true,
+    },
+    {
+      name: "totalExperience",
+      type: "text",
+      label: "Total Experience",
+      invisible: true,
+    },
+    {
+      name: "currentPosition",
+      type: "text",
+      label: "Current Position",
+      invisible: true,
+    },
+    {
+      name: "relevantExperience:textarea",
+      type: "textarea",
+      label: "Relevant Experience",
+      invisible: true,
+    },
+    {
+      name: "status:status",
+      type: "select",
+      label: "Status",
+      options: ["pending", "shortlisted", "interviewed", "hired", "rejected"],
+      statusVariants: {
+        pending: "warning",
+        shortlisted: "primary",
+        interviewed: "default",
+        hired: "success",
+        rejected: "danger",
+      },
+    },
+    {
+      name: "resumeUrl:file",
+      type: "file",
+      label: "CV/Resume",
+      required: true,
+      invisible: true,
+      column: "right",
+    },
+  ],
+  filters: [
+    {
+      field: "status",
+      label: "Status",
+      options: [
+        { label: "Pending", value: "pending" },
+        { label: "Shortlisted", value: "shortlisted" },
+        { label: "Interviewed", value: "interviewed" },
+        { label: "Hired", value: "hired" },
+        { label: "Rejected", value: "rejected" },
+      ],
+    },
+  ],
+})

@@ -21,6 +21,7 @@ export { allowed } from "./lib/access.js";
 // --- Templates ---
 export { default as DataTable } from "./components/templates/DataTable.jsx";
 export { ImageUploader } from "./components/templates/ImageUploader.jsx";
+export { PdfUploader } from "./components/templates/PdfUploader.jsx";
 export { LoginPage } from "./components/templates/LoginPage.jsx";
 export { MediaListUploader } from "./components/templates/MediaListUploader.jsx";
 

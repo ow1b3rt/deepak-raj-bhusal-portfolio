@@ -39,6 +39,7 @@ const RIGHT_LINKS = [
 const CORPORATE_ITEMS = [
   { label: "Partnership", href: "/partnership" },
   { label: "Blogs", href: "/blogs" },
+  { label: "Careers", href: "/careers" },
 ]
 
 const SOCIALS = [
@@ -97,7 +98,9 @@ export function Navbar() {
     if (!el) {
       // Graceful fallback if a section id isn't rendered directly
       if (id === "impact") {
-        const fallback = document.getElementById("ventures") || document.getElementById("timeline")
+        const fallback =
+          document.getElementById("ventures") ||
+          document.getElementById("timeline")
         if (fallback) {
           if (lenis) lenis.scrollTo(fallback, { offset: -80, duration: 1.2 })
           else fallback.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -118,7 +121,14 @@ export function Navbar() {
 
     if (!isHomePage) return
 
-    const allSectionIds = ["story", "ventures", "impact", "insights", "media", "blogs"]
+    const allSectionIds = [
+      "story",
+      "ventures",
+      "impact",
+      "insights",
+      "media",
+      "blogs",
+    ]
     let observer = null
     const observedElements = new Set()
 
@@ -192,7 +202,7 @@ export function Navbar() {
   }
 
   const isCorporateActive =
-    pathname === "/partnership" || pathname.startsWith("/blogs")
+    pathname === "/partnership" || pathname.startsWith("/blogs") || pathname.startsWith("/careers") || pathname.startsWith("/career")
 
   return (
     <motion.header
@@ -329,7 +339,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.96 }}
                     transition={{ duration: 0.18, ease: "easeOut" }}
-                    className="absolute left-1/2 top-full z-50 mt-2 min-w-[170px] -translate-x-1/2 overflow-hidden rounded-xl border border-red-500/10 bg-white p-1.5 shadow-xl backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900"
+                    className="absolute top-full left-1/2 z-50 mt-2 min-w-[170px] -translate-x-1/2 overflow-hidden rounded-xl border border-red-500/10 bg-white p-1.5 shadow-xl backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900"
                   >
                     {CORPORATE_ITEMS.map((item) => {
                       const isActive = pathname === item.href
@@ -398,7 +408,10 @@ export function Navbar() {
             </motion.button>
           </SheetTrigger>
 
-          <SheetContent side="right" className="w-[85vw] max-w-sm bg-background p-6">
+          <SheetContent
+            side="right"
+            className="w-[85vw] max-w-sm bg-background p-6"
+          >
             <SheetHeader className="border-b border-border pb-4">
               <SheetTitle className="text-left">
                 <Image
@@ -436,7 +449,9 @@ export function Navbar() {
                       className={cn(
                         "block w-full cursor-pointer rounded-lg px-4 py-2.5 text-left text-base font-medium transition-colors",
                         "hover:bg-muted",
-                        active ? "font-semibold text-[#EA0614]" : "text-foreground/80"
+                        active
+                          ? "font-semibold text-[#EA0614]"
+                          : "text-foreground/80"
                       )}
                     >
                       {link.label}
@@ -452,7 +467,11 @@ export function Navbar() {
                   onClick={() => setMobileCorporateOpen((prev) => !prev)}
                   className="flex w-full cursor-pointer items-center justify-between rounded-lg px-4 py-2.5 text-left text-base font-medium text-foreground/80 hover:bg-muted"
                 >
-                  <span className={cn(isCorporateActive && "font-semibold text-[#EA0614]")}>
+                  <span
+                    className={cn(
+                      isCorporateActive && "font-semibold text-[#EA0614]"
+                    )}
+                  >
                     Corporate
                   </span>
                   <ChevronDown
@@ -464,7 +483,7 @@ export function Navbar() {
                 </button>
 
                 {mobileCorporateOpen && (
-                  <div className="ml-4 mt-1 flex flex-col gap-1 border-l-2 border-red-500/20 pl-2">
+                  <div className="mt-1 ml-4 flex flex-col gap-1 border-l-2 border-red-500/20 pl-2">
                     {CORPORATE_ITEMS.map((item) => (
                       <Link
                         key={item.href}
@@ -505,7 +524,7 @@ export function Navbar() {
                 <Link
                   href="/connect-now"
                   onClick={() => setOpen(false)}
-                  className="block h-11 w-full cursor-pointer rounded-xl bg-[#EA0614] px-4 text-center text-base font-semibold leading-[2.75rem] text-white shadow-sm transition-colors hover:bg-[#d60512]"
+                  className="block h-11 w-full cursor-pointer rounded-xl bg-[#EA0614] px-4 text-center text-base leading-[2.75rem] font-semibold text-white shadow-sm transition-colors hover:bg-[#d60512]"
                 >
                   Connect
                 </Link>

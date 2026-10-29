@@ -85,7 +85,7 @@ export function ImageUploader({
       <label className="text-sm font-semibold text-gray-700">{caption}</label>
 
       {coverPreview ? (
-        <div className="group relative h-40 w-full overflow-hidden rounded-lg border border-gray-200">
+        <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-gray-200">
           <img
             src={previewSrc}
             alt="Cover preview"
@@ -104,7 +104,7 @@ export function ImageUploader({
       ) : (
         <button
           type="button"
-          className="flex h-40 cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-gray-300 p-5 text-gray-400 transition-colors hover:border-indigo-500 hover:text-indigo-500"
+          className="flex aspect-[4/3] cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-gray-300 p-5 text-gray-400 transition-colors hover:border-indigo-500 hover:text-indigo-500"
           onClick={() => setModalOpen(true)}
         >
           <svg

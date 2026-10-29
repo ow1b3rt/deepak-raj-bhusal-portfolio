@@ -7,6 +7,7 @@ import { Eye, EyeOff } from "lucide-react"; // Import icons for the toggle
 import { Input, Select, Textarea } from "../atoms/Input.jsx";
 import { RelationshipField } from "../atoms/RelationshipField.jsx";
 import { ImageUploader } from "../templates/ImageUploader.jsx";
+import { PdfUploader } from "../templates/PdfUploader.jsx";
 
 // Dedicated Password component to handle show/hide state
 function PasswordInput({ name, placeholder, required, disabled }) {
@@ -123,6 +124,10 @@ export function PayloadField({ field }) {
 
   if (type === "image") {
     return <ImageUploader name={name} id={label} caption={label} />;
+  }
+
+  if (type === "pdf") {
+    return <PdfUploader name={name} id={label} caption={label} />;
   }
 
   if (type === "date-time") {
