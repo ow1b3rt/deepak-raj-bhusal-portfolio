@@ -10,3 +10,5 @@ export * from './ItemHead';
 export * from './SocialInvolvement'
 export * from './ProfessionalJourney';
 export * from './Education';
+export * from './ForeignTrips';
+

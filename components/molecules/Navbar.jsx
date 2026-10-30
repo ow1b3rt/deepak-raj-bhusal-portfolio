@@ -397,15 +397,17 @@ export function Navbar() {
         </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild>
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              type="button"
-              aria-label="Open menu"
-              className="flex size-9 cursor-pointer items-center justify-center rounded-lg border border-border text-foreground hover:bg-muted"
-            >
-              <Menu className="size-5 text-[#EA0614]" />
-            </motion.button>
+          <SheetTrigger
+            render={
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                type="button"
+                aria-label="Open menu"
+                className="flex size-9 cursor-pointer items-center justify-center rounded-lg border border-border text-foreground hover:bg-muted"
+              />
+            }
+          >
+            <Menu className="size-5 text-[#EA0614]" />
           </SheetTrigger>
 
           <SheetContent

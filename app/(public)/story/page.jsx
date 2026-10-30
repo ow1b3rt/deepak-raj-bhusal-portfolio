@@ -1,4 +1,4 @@
-import { StoryGrid, EducationList, SocialInvolvement, ProfessionalJourney } from "@/features/story";
+import { StoryGrid, EducationList, SocialInvolvement, ProfessionalJourney, ForeignTrips } from "@/features/story";
 
 export const metadata = {
   title: "My Story",
@@ -19,6 +19,7 @@ export default function StoryPage() {
       <StoryGrid />
       <ProfessionalJourney />
       <EducationList />
+      <ForeignTrips />
       <SocialInvolvement />
     </div>
   );
