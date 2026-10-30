@@ -28,17 +28,19 @@ import {
 const LEFT_LINKS = [
   { label: "Story", id: "story" },
   { label: "Ventures", id: "ventures" },
-  { label: "Impact", id: "impact" },
+  { label: "Blogs", id: "blogs" },
 ]
 
 const RIGHT_LINKS = [
-  { label: "Insights", id: "insights" },
   { label: "Media", id: "media" },
+
+  { label: "Insights", id: "insights" },
+
 ]
 
 const CORPORATE_ITEMS = [
   { label: "Partnership", href: "/partnership" },
-  { label: "Blogs", href: "/blogs" },
+  { label: "Articles", href: "/articles" },
   { label: "Careers", href: "/careers" },
 ]
 
@@ -96,16 +98,6 @@ export function Navbar() {
     }
     const el = document.getElementById(id)
     if (!el) {
-      // Graceful fallback if a section id isn't rendered directly
-      if (id === "impact") {
-        const fallback =
-          document.getElementById("ventures") ||
-          document.getElementById("timeline")
-        if (fallback) {
-          if (lenis) lenis.scrollTo(fallback, { offset: -80, duration: 1.2 })
-          else fallback.scrollIntoView({ behavior: "smooth", block: "start" })
-        }
-      }
       return
     }
     if (lenis) {
@@ -115,19 +107,43 @@ export function Navbar() {
     }
   }
 
+  // Handle hash navigation when arriving from another page or hash change
+  React.useEffect(() => {
+    if (!isHomePage || typeof window === "undefined") return
+
+    const handleHashScroll = () => {
+      const hash = window.location.hash.replace("#", "")
+      if (hash) {
+        const el = document.getElementById(hash)
+        if (el) {
+          if (lenis) {
+            lenis.scrollTo(el, { offset: -80, duration: 1.2 })
+          } else {
+            el.scrollIntoView({ behavior: "smooth", block: "start" })
+          }
+        }
+      }
+    }
+
+    const timer = setTimeout(handleHashScroll, 300)
+    window.addEventListener("hashchange", handleHashScroll)
+
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener("hashchange", handleHashScroll)
+    }
+  }, [isHomePage, pathname, lenis])
+
   // Active section observer on home page
   React.useEffect(() => {
-    setActiveId(null)
-
     if (!isHomePage) return
 
     const allSectionIds = [
       "story",
       "ventures",
-      "impact",
+      "blogs",
       "insights",
       "media",
-      "blogs",
     ]
     let observer = null
     const observedElements = new Set()
