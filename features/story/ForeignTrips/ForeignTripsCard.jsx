@@ -16,7 +16,7 @@ export function ForeignTripsCard({ item, index = 0, className = "" }) {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
       className={`relative w-full h-full min-h-[220px] rounded-2xl md:rounded-3xl overflow-hidden group shadow-sm bg-neutral-100 dark:bg-neutral-800 cursor-pointer ${className}`}
-      style={{ gridArea: item.area }}
+      style={item.area ? { gridArea: item.area } : undefined}
     >
       {imgSrc ? (
         <Image
@@ -34,8 +34,13 @@ export function ForeignTripsCard({ item, index = 0, className = "" }) {
       )}
 
       {/* Description overlay displayed at all times */}
-      {(item.title || item.description) && (
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-5 md:p-6 text-white z-10 pointer-events-none">
+      {(item.title || item.description || item.date) && (
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-4 sm:p-5 md:p-6 text-white z-10 pointer-events-none">
+          {item.date && (
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-chart-3 mb-1 drop-shadow-xs">
+              {item.date}
+            </span>
+          )}
           {item.title && (
             <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-tight text-white mb-1 drop-shadow-sm">
               {item.title}

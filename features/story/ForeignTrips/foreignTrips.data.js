@@ -1,73 +1,99 @@
 export const foreignTripsData = {
-  titleMain: "Foreign Trips &",
-  titleHighlight: "Conferences Participation",
+  titleMain: "International Trips &",
+  titleHighlight: "Conference Participation",
   slides: [
     {
       id: "slide-1",
       items: [
         {
-          id: "foreign-trip-1-1",
+          id: "foreign-trip-1",
           area: "area1",
-          title: "Global Headquarters & International Ventures",
+          title: "Vietnam | Da Nang & Hanoi",
+          date: "June 9–15, 2025",
           description:
-            "Visiting international education partners and global business headquarters across the UK, Australia, and Asia-Pacific.",
-          imageUrl: "/images/person/Enlighten_Infosys.JPG",
-          fallbackUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+            "Participated in workshops during a visit to Da Nang and Hanoi, gaining professional exposure through workshop activities and engagement with the local environment. The trip also included visits to notable tourist destinations across Vietnam.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800&auto=format&fit=crop",
           aspect: "portrait",
         },
         {
-          id: "foreign-trip-1-2",
+          id: "foreign-trip-2",
           area: "area2",
-          title: "Himalayan Expeditions & Summits",
+          title: "India | New Delhi",
+          date: "November 18–21, 2022",
           description:
-            "High-altitude leadership retreat and summit exploring regional tourism, sustainability, and mountain preservation.",
-          imageUrl: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800&auto=format&fit=crop",
+            "Participated in workshops and a conference associated with the Federation of Indian Chambers of Commerce and Industry (FICCI). The visit provided an opportunity to take part in professional discussions and engage with topics relevant to business, industry, and international collaboration.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
         {
-          id: "foreign-trip-1-3",
+          id: "foreign-trip-3",
           area: "area3",
-          title: "Cultural Exchange & Heritage Sites",
+          title: "Japan | Tokyo",
+          date: "November 5–December 5, 2017",
           description:
-            "Participating in bilateral cultural diplomacy and historic conservation forums with international delegates.",
-          imageUrl: "https://images.unsplash.com/photo-1582650625119-3a31f8418365?q=80&w=800&auto=format&fit=crop",
+            "Participated in J-Conference activities in Tokyo and visited colleges and universities during the trip. These visits provided an opportunity to observe aspects of Japan’s higher education environment and broaden exposure to international academic institutions.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
         {
-          id: "foreign-trip-1-4",
+          id: "foreign-trip-4",
           area: "area4",
-          title: "Historic Summits & Traditional Forums",
+          title: "United Kingdom | London",
+          date: "August 28–September 4, 2017",
           description:
-            "Engaging with civic leaders, policymakers, and heritage organizations in Patan and Kathmandu valley.",
-          imageUrl: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?q=80&w=800&auto=format&fit=crop",
+            "Participated in a WEBA workshop in London, along with the ST Alphas UK workshop. The visit brought together workshop participation and professional engagement in the United Kingdom, as recorded in the supplied travel history.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
         {
-          id: "foreign-trip-1-5",
+          id: "foreign-trip-5",
           area: "area5",
-          title: "Executive Leadership & Keynote",
+          title: "United Kingdom | London & Scotland",
+          date: "July 1–7, 2017",
           description:
-            "Delivering a keynote on youth empowerment, vocational skill training, and cross-border higher education avenues.",
-          imageUrl: "/images/person/deepak-sitting.jpeg",
-          fallbackUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+            "Attended a British Council workshop involving the organization’s London headquarters and Scotland. The visit included participation in workshop activities across both locations and formed part of a broader programme of international professional engagement.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1589330273594-fade1ee91647?q=80&w=800&auto=format&fit=crop",
           aspect: "portrait",
         },
         {
-          id: "foreign-trip-1-6",
+          id: "foreign-trip-6",
           area: "area6",
-          title: "European Educational Tour",
+          title: "United Arab Emirates | Dubai, Abu Dhabi, Sharjah & Ajman",
+          date: "September 16–23, 2016",
           description:
-            "Touring premier Swiss and Central European educational institutions to forge reciprocal scholarship agreements.",
-          imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop",
+            "Travelled across the United Arab Emirates, visiting Dubai, Abu Dhabi, Sharjah, and Ajman. The recorded purpose included attendance at the International African Education Summit in Dubai, bringing conference participation together with visits to several major destinations in the region.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
         {
-          id: "foreign-trip-1-7",
+          id: "foreign-trip-7",
           area: "area7",
-          title: "Adventure Tourism & Team Building",
+          title: "Russia | Moscow & Belgorod",
+          date: "March 10–21, 2016",
           description:
-            "Leading experiential youth leadership and river expedition programs focused on teamwork and endurance.",
-          imageUrl: "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?q=80&w=800&auto=format&fit=crop",
+            "Participated in IUNC conferences and an agency workshop during a visit to Moscow and Belgorod. The trip combined conference attendance with workshop participation, providing opportunities for professional engagement in an international education context.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1513326738677-b964603b136d?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
       ],
@@ -76,136 +102,51 @@ export const foreignTripsData = {
       id: "slide-2",
       items: [
         {
-          id: "foreign-trip-2-1",
-          area: "area1",
-          title: "World Education Forum & Exhibition",
+          id: "foreign-trip-8",
+          title: "Thailand | Bangkok & Pattaya",
+          date: "February 16–19, 2016",
           description:
-            "Representing educational initiatives at the international convention exploring future career trends for youth.",
-          imageUrl: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800&auto=format&fit=crop",
-          aspect: "portrait",
-        },
-        {
-          id: "foreign-trip-2-2",
-          area: "area2",
-          title: "ASEAN Business & Educational Summit",
-          description:
-            "Fostering institutional ties and university partnerships across Southeast Asia and the Pacific rim.",
-          imageUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop",
+            "Participated in a WEBA workshop and conference in Thailand, with visits to Bangkok and Pattaya. The programme offered an opportunity to take part in professional activities while experiencing two of the country’s prominent destinations.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
         {
-          id: "foreign-trip-2-3",
-          area: "area3",
-          title: "Tokyo Academic Exchange Forum",
+          id: "foreign-trip-9",
+          title: "Malaysia | Kuala Lumpur",
+          date: "November 26–29, 2015",
           description:
-            "Consulting with university deans in Tokyo to expand academic pathways, language immersion, and technology programs.",
-          imageUrl: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=800&auto=format&fit=crop",
+            "Participated in a WEBA workshop in Kuala Lumpur. The visit formed part of a series of international engagements connected with workshops and conferences, supporting continued participation in the international professional community.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1584285418504-0051edae9e54?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
         {
-          id: "foreign-trip-2-4",
-          area: "area4",
-          title: "Sydney Educational Summit",
+          id: "foreign-trip-10",
+          title: "Singapore",
+          date: "November 29–December 30, 2015",
           description:
-            "Strengthening tie-ups with Australian universities, CRICOS registered providers, and vocational institutes.",
-          imageUrl: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=800&auto=format&fit=crop",
+            "Visited Singapore for an extended trip that included travel to major tourist destinations across the city-state. The visit provided an opportunity to experience Singapore’s urban environment, landmarks, and visitor attractions.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1506351421178-63b52a2d2562?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
         {
-          id: "foreign-trip-2-5",
-          area: "area5",
-          title: "Lions International Convention",
+          id: "foreign-trip-11",
+          title: "India | Delhi",
+          date: "November 19–December 30, 2003",
           description:
-            "Collaborating with global delegates on humanitarian projects, blindness prevention, and youth sports support.",
-          imageUrl: "/images/person/lions_drb.jpg",
-          fallbackUrl: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop",
-          aspect: "portrait",
-        },
-        {
-          id: "foreign-trip-2-6",
-          area: "area6",
-          title: "London Higher Education Delegation",
-          description:
-            "Reviewing international student welfare policies and post-study opportunities across British universities.",
-          imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800&auto=format&fit=crop",
-          aspect: "landscape",
-        },
-        {
-          id: "foreign-trip-2-7",
-          area: "area7",
-          title: "Dubai Trade & Innovation Conclave",
-          description:
-            "Engaging with industry pioneers on digital education platforms, vocational training, and global hospitality.",
-          imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop",
-          aspect: "landscape",
-        },
-      ],
-    },
-    {
-      id: "slide-3",
-      items: [
-        {
-          id: "foreign-trip-3-1",
-          area: "area1",
-          title: "Cross-Border Higher Education Council",
-          description:
-            "Setting international standards for student mobility, ethical counseling, and overseas admissions guidance.",
-          imageUrl: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
-          aspect: "portrait",
-        },
-        {
-          id: "foreign-trip-3-2",
-          area: "area2",
-          title: "Singapore Regional Leadership Forum",
-          description:
-            "Key discussion on educational technology integration and continuous career upskilling in South Asia.",
-          imageUrl: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800&auto=format&fit=crop",
-          aspect: "landscape",
-        },
-        {
-          id: "foreign-trip-3-3",
-          area: "area3",
-          title: "Bangkok Youth Leadership Forum",
-          description:
-            "Inspiring emerging social entrepreneurs and delegates on community-driven growth and sustainable enterprise.",
-          imageUrl: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800&auto=format&fit=crop",
-          aspect: "landscape",
-        },
-        {
-          id: "foreign-trip-3-4",
-          area: "area4",
-          title: "New Delhi Bilateral Commerce Meet",
-          description:
-            "Exploring cross-border trade, regional educational alliances, and public-private partnership models.",
-          imageUrl: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
-          aspect: "landscape",
-        },
-        {
-          id: "foreign-trip-3-5",
-          area: "area5",
-          title: "National Industry Leadership Honor",
-          description:
-            "Recognized by enterprise federations for outstanding contributions to youth vocational skill building.",
-          imageUrl: "/images/person/hero.jpg",
-          fallbackUrl: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
-          aspect: "portrait",
-        },
-        {
-          id: "foreign-trip-3-6",
-          area: "area6",
-          title: "Toronto International Education Expo",
-          description:
-            "Connecting prospective scholars with prominent Canadian university representatives and scholarship boards.",
-          imageUrl: "https://images.unsplash.com/photo-1507992781348-310259076fa0?q=80&w=800&auto=format&fit=crop",
-          aspect: "landscape",
-        },
-        {
-          id: "foreign-trip-3-7",
-          area: "area7",
-          title: "Eco-Summit & Community Fieldwork",
-          description:
-            "Leading local sustainability projects, climate awareness walks, and rural community service drives.",
-          imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop",
+            "Travelled to Delhi and visited major locations across the city. This entry records an earlier international trip as part of the broader history of travel and overseas exposure included in the supplied reference.",
+          imageUrl:
+            "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?q=80&w=800&auto=format&fit=crop",
+          fallbackUrl:
+            "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
           aspect: "landscape",
         },
       ],

@@ -99,7 +99,7 @@ export function SafeImage({
         {...(fill
           ? { fill: true }
           : { width: width || 100, height: height || 100 })}
-        sizes={sizes}
+        sizes={sizes || (fill ? "100vw" : undefined)}
         priority={priority}
         quality={quality}
         unoptimized={unoptimized || hasErrored}

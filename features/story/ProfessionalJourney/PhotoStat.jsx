@@ -14,10 +14,11 @@ export function PhotoStat({ photo, topContent, bottomContent }) {
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <SafeImage
-        src={photo}
-        alt='Photo'
-        fill
-        className='object-cover w-full h-full'
+          src={photo}
+          alt='Photo'
+          fill
+          sizes="(max-width: 1024px) 100vw, 40vw"
+          className='object-cover w-full h-full'
         />
       </motion.div>
 

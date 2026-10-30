@@ -25,6 +25,21 @@ const gridClassname = `
   foreign-trips-grid-areas
 `;
 
+const gridClassname4 = `
+  grid
+  w-full
+  gap-3
+  sm:gap-4
+  lg:gap-5
+  grid-cols-1
+  sm:grid-cols-2
+  md:grid-cols-2
+  md:grid-rows-2
+  md:h-[660px]
+  lg:h-[760px]
+  xl:h-[820px]
+`;
+
 export function ForeignTrips({ data = foreignTripsData }) {
   const { titleMain, titleHighlight } = data;
   const slides =
@@ -103,14 +118,14 @@ export function ForeignTrips({ data = foreignTripsData }) {
             animate="center"
             exit="exit"
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className={gridClassname}
+            className={currentSlide.items.length <= 4 ? gridClassname4 : gridClassname}
           >
             {currentSlide.items.map((item, index) => (
               <ForeignTripsCard
                 key={`${currentSlideIndex}-${item.id}`}
                 item={item}
                 index={index}
-                className={`[grid-area:${item.area}]`}
+                className={item.area ? `[grid-area:${item.area}]` : ""}
               />
             ))}
           </motion.div>

@@ -50,6 +50,7 @@ export function PartnerGridItem({ gridArea }) {
                     src={p.image}
                     alt={p.name}
                     fill
+                    sizes="128px"
                     objectFit="contain"
                   />
                 </div>

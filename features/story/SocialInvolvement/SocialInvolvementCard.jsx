@@ -11,6 +11,7 @@ export function SocialInvolvementCard({ title, description, imageUrl }) {
           src={imageUrl}
           alt={title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-start justify-end gap-4 bg-black/60 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
