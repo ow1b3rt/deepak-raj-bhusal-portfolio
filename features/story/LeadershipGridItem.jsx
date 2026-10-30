@@ -20,9 +20,9 @@ export function LeadershipGridItem({ gridArea }) {
         A passionate professional committed to leadership, innovation, and
         meaningful contributions to society.
       </p>
-      <div className="lg:h-48  relative mt-2 h-64 w-full overflow-hidden rounded-xl">
+      <div className="relative mt-2 flex-1 w-full min-h-[280px] sm:min-h-[320px] lg:min-h-[340px] overflow-hidden rounded-xl">
         <SafeImage
-          src="/images/person/ventures.png"
+          src="/images/person/deepak-leadership.jpeg"
           alt="Leadership"
           fill
           className="object-cover object-top"

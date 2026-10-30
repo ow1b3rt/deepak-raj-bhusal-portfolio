@@ -66,7 +66,7 @@ export const featuredVenturesData = {
         "Involved in organizational leadership",
       ],
       image: {
-        src: "/images/enlighten_logos/manasi.jpg",
+        src: "/images/enlighten_logos/manasi.svg",
         alt: "Manasi Kids Palace",
         className: "object-cover",
       },
@@ -83,7 +83,7 @@ export const featuredVenturesData = {
         "Corporate leadership and governance",
       ],
       image: {
-        src: "/images/person/Business_&_Professional_Leadership.JPG",
+        src: "/images/enlighten_logos/Sarangkot.svg",
         alt: "Sarangkot Corporate Group",
         className: "object-cover object-top",
       },
@@ -100,7 +100,7 @@ export const featuredVenturesData = {
         "Based in Nepal",
       ],
       image: {
-        src: "/images/person/Expanding_into_Technology_&_Hospitality.JPG",
+        src: "/images/enlighten_logos/godawari.svg",
         alt: "Godawari Panoramic Resort",
         className: "object-cover object-top",
       },
