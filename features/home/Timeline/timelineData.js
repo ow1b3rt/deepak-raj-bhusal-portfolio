@@ -27,13 +27,13 @@ export const TIMELINE_DATA = [
     year: "2021",
     title: "Expanding into Technology & Hospitality",
     body: "Took leadership roles as Executive Chairman of Enlighten Infosys and Godawari Panoromic Resort.",
-    image: "/images/person/Expanding_into_Technology_&_Hospitality.JPG",
+    image: "/images/person/deepak-speaking.jpeg",
   },
   {
     year: "2024",
     title: "Community Leadership",
     body: "Served as President of Lions Club of Kathmandu Basistha Global, continuing his involvement in community and social service.",
-    image: "/images/person/Community_Leadership.JPG",
+    image: "/images/person/deepak-community.jpeg",
   },
   {
     year: "2025",
