@@ -1,11 +1,5 @@
 export const socialInvolvements = [
   {
-    title: "Educational Consultancy Association Of Nepal (ECAN)",
-    description:
-      "Served as General Secretary (2019-2025), Secretary (2016-2019), and Executive Member (2013-2016).",
-    imageUrl: "/images/person/drb_ecan.jpeg",
-  },
-  {
     title: "Lions club of Kathmandu Basistha Global & Balaju Jaycees",
     description:
       "President of Lions club of Kathmandu Basistha Global (2024/2025) and Balaju Jaycees Kathmandu (2017).",

@@ -7,6 +7,7 @@ export * from './StoryGridItem';
 export * from './VisionGridItem';
 export * from './DriveGridItem';
 export * from './ItemHead';
+export * from './ProfessionalInvolvement';
 export * from './SocialInvolvement'
 export * from './ProfessionalJourney';
 export * from './Education';

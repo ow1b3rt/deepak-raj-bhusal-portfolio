@@ -1,0 +1,17 @@
+import { ProfessionalInvolvementCard } from "./ProfessionalInvolvementCard"
+import { professionalInvolvements } from "./professionalInvolvements.data"
+
+export function ProfessionalInvolvementList() {
+  return (
+    <div className="my-4 grid grid-cols-1 gap-4 pb-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {professionalInvolvements.map((item) => (
+        <ProfessionalInvolvementCard
+          key={item.title}
+          title={item.title}
+          description={item.description}
+          imageUrl={item.imageUrl}
+        />
+      ))}
+    </div>
+  )
+}
