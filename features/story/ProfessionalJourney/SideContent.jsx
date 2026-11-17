@@ -1,6 +1,5 @@
-import { Radio, ArrowUpRight } from "lucide-react";
+import { Radio } from "lucide-react";
 import { sideContentData } from "./SideContent.data";
-import { MoreButton } from "@/components/shared/MoreButton";
 
 export function SideContent({ data = sideContentData }) {
   const { eyebrow, heading, paragraphs, highlights } = data;
@@ -32,14 +31,6 @@ export function SideContent({ data = sideContentData }) {
           </div>
         ))}
       </div>
-
-      {/* CTA */}
-      <MoreButton content={
-        <div className='flex items-center gap-2 '>
-          <span>Connect with us</span>
-          <ArrowUpRight className='size-4' />
-        </div>
-      } />
     </div>
   );
 }
