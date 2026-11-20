@@ -7,7 +7,7 @@ export const insights = [
     bullets: [
       "Executive Chairman of Enlighten International Education and Enlighten Travels and Tours since 2009",
       "Executive Chairman of Enlighten Infosys and Godawari Panoromic Resort since 2021",
-      "Leadership roles at Sarangkot Corporate Group, Adhrsheela College, Manasi Kids Palace, Enlighten Skills and Vocational Training Center, and Enlighten Leaf",
+      "Leadership roles at Sarangkot Corporate Group, Adharsheela College, Manasi Kids Palace, Enlighten Skills and Vocational Training Center, and Enlighten Leaf",
     ],
     //cta: { label: "Learn More", href: "#" },
     image: {

@@ -40,7 +40,7 @@ export const data = {
       },
       {
         id: "03",
-        name: "Adhrsheela College",
+        name: "Adharsheela College",
         image: "/images/enlighten_logos/adharsheela.jpg",
         href: "https://www.facebook.com/adharsheelacollege/",
       },

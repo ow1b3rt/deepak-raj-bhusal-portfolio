@@ -1,7 +1,5 @@
 import { fetcher } from "@/lib/fetcher"
 import { timeAgo, stripHtml, resolveUrl } from "@/lib/utils"
-import { fallbackJobs } from "./career.data"
-
 function formatMode(mode = "") {
   if (!mode) return "Onsite"
   const clean = String(mode).toLowerCase()
@@ -20,11 +18,9 @@ function toCard(job) {
     type: mode,
     workingMode: job.workingMode || "onsite",
     postedAgo: timeAgo(job.createdAt) || "Recently",
-    experienceYears: Number.parseInt(job.experience, 10) || 2,
-    description:
-      stripHtml(job.description) ||
-      "Lorem ipsum dolor sit amet consectetur. Eget morbi at varius in sagittis tellus commodo diam scelerisque.",
-    salary: job.salary || "Rs 5000 - Rs 8000",
+    experienceYears: Number.parseInt(job.experience, 10) || null,
+    description: stripHtml(job.description) || "",
+    salary: job.salary || "",
     imgSrc: job.imgSrc ? resolveUrl(job.imgSrc) : "/images/careers/jlpt-desk.jpg",
     slug: job.slug,
     href: `/careers/${job.slug}`,
@@ -50,30 +46,23 @@ export async function getJobs({ page = 1, limit = 5 } = {}) {
       (j) => !j.status || j.status === "open",
     )
 
-    if (items.length > 0 || res?.total > 0) {
-      const total = res?.total ?? items.length
-      const totalPages = Math.max(1, Math.ceil(total / limit))
-      return {
-        items: items.map(toCard),
-        page,
-        totalPages,
-        total,
-      }
+    const total = res?.total ?? items.length
+    const totalPages = Math.max(1, Math.ceil(total / limit))
+    return {
+      items: items.map(toCard),
+      page,
+      totalPages,
+      total,
     }
   } catch (err) {
-    console.error("Failed to load jobs from API, using fallback data:", err?.message)
+    console.error("Failed to load jobs from API:", err?.message)
   }
 
-  // Fallback: manual slice for pagination
-  const open = fallbackJobs.filter((j) => !j.status || j.status === "open")
-  const total = open.length
-  const totalPages = Math.max(1, Math.ceil(total / limit))
-  const start = (page - 1) * limit
   return {
-    items: open.slice(start, start + limit),
+    items: [],
     page,
-    totalPages,
-    total,
+    totalPages: 1,
+    total: 0,
   }
 }
 
@@ -81,26 +70,19 @@ export async function getOpenPositions() {
   try {
     const data = await fetcher("/jobs?limit=100")
     const items = data?.items || []
-    if (items.length > 0) {
-      return items
-        .filter((j) => !j.status || j.status === "open")
-        .map((job) => ({
-          value: job.title,
-          label: job.title,
-          slug: job.slug,
-          id: job.id,
-        }))
-    }
+    return items
+      .filter((j) => !j.status || j.status === "open")
+      .map((job) => ({
+        value: job.title,
+        label: job.title,
+        slug: job.slug,
+        id: job.id,
+      }))
   } catch {
-    // fallback
+    // Return no positions when the jobs API is unavailable.
   }
 
-  return fallbackJobs.map((job) => ({
-    value: job.title,
-    label: job.title,
-    slug: job.slug,
-    id: job.id,
-  }))
+  return []
 }
 
 export async function getJobBySlug(slug) {
@@ -150,7 +132,7 @@ export async function getJobBySlug(slug) {
           responsibilities,
           niceToHave,
           salary: item.salary,
-          experienceYears: Number.parseInt(item.experience, 10) || 2,
+          experienceYears: Number.parseInt(item.experience, 10) || null,
           workingMode: mode,
           workingHours: mode,
           imgSrc: item.imgSrc ? resolveUrl(item.imgSrc) : "/images/careers/jlpt-desk.jpg",
@@ -159,33 +141,6 @@ export async function getJobBySlug(slug) {
     }
   } catch (err) {
     console.error("Failed to fetch job by slug:", err?.message)
-  }
-
-  const match = fallbackJobs.find((j) => j.slug === slug)
-  if (match) {
-    return {
-      id: match.id,
-      slug: match.slug,
-      title: match.title,
-      badge: "Career",
-      overview: Array.isArray(match.details?.overview)
-        ? match.details.overview
-        : [match.description],
-      responsibilities: match.details?.responsibilities || [
-        "Oversee technical initiatives, operations, and support.",
-        "Collaborate with internal teams and partners on delivery.",
-        "Maintain system documentation, standards, and reliability.",
-      ],
-      niceToHave: match.details?.requirements || [
-        "Proven background in relevant domain or technologies.",
-        "Strong problem-solving capability and attention to detail.",
-      ],
-      salary: match.salary,
-      experienceYears: match.experienceYears || 2,
-      workingMode: formatMode(match.workingMode || match.type),
-      workingHours: formatMode(match.workingMode || match.type),
-      imgSrc: match.imgSrc || "/images/careers/jlpt-desk.jpg",
-    }
   }
 
   return null

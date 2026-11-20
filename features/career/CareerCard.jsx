@@ -10,14 +10,14 @@ export function CareerCard({
   onApply,
 }) {
   const {
-    title = "IT Officer",
-    type = "Onsite",
-    postedAgo = "3 Days ago",
-    salary = "Rs 35,000 - Rs 50,000",
-    description = "Lorem ipsum dolor sit amet consectetur. Eget morbi at varius in sagittis tellus commodo diam scelerisque. Orci quis enim tristique nam neque mauris tellus consectetur.",
-    experienceYears = 2,
+    title,
+    type,
+    postedAgo,
+    salary,
+    description,
+    experienceYears,
     imgSrc = "/images/careers/jlpt-desk.jpg",
-    slug = "it-officer",
+    slug,
   } = job || {}
 
   return (
@@ -37,7 +37,7 @@ export function CareerCard({
       <div className="flex flex-1 flex-col justify-between py-1 md:py-2">
         <div>
           {/* Title */}
-          <Link href={`/careers/${slug}`}>
+          <Link href={slug ? `/careers/${slug}` : "/careers"}>
             <h2 className="text-2xl font-bold tracking-tight text-neutral-900 transition-colors hover:text-[#EA0614] md:text-3xl dark:text-white">
               {title}
             </h2>
@@ -48,29 +48,29 @@ export function CareerCard({
             {/* Working Mode (Onsite / Hybrid / Remote) */}
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="size-4.5 text-[#EA0614] stroke-[2.2]" />
-              <span>{type}</span>
+              <span>{type || ""}</span>
             </span>
 
             {/* Posted Time */}
             <span className="inline-flex items-center gap-1.5">
               <Clock className="size-4.5 text-[#EA0614] stroke-[2.2]" />
-              <span>{postedAgo}</span>
+              <span>{postedAgo || ""}</span>
             </span>
 
             {/* Salary */}
             <span className="inline-flex items-center gap-1.5">
               <Banknote className="size-4.5 text-[#EA0614] stroke-[2.2]" />
-              <span>{salary}</span>
+              <span>{salary || ""}</span>
             </span>
           </div>
 
           {/* Description */}
           <p className="mt-3.5 text-sm leading-relaxed text-neutral-600 md:text-[15px] dark:text-neutral-300">
-            {description}
+            {description || ""}
           </p>
 
           {/* Experience Block */}
-          <div className="mt-4">
+          {experienceYears != null && Number.isFinite(experienceYears) && <div className="mt-4">
             <span className="block text-xs font-bold text-neutral-900 md:text-sm dark:text-neutral-200">
               Experience:
             </span>
@@ -82,7 +82,7 @@ export function CareerCard({
                 Years of Experience
               </span>
             </div>
-          </div>
+          </div>}
         </div>
 
         {/* Action Button */}

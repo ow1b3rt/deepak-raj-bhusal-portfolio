@@ -40,9 +40,9 @@ export const featuredVenturesData = {
     },
     {
       id: "03",
-      title: "Adhrsheela College",
+      title: "Adharsheela College",
       description:
-        "Since 2015, Deepak Raj Bhusal has served on the Board of Directors of Adhrsheela College in Kathmandu. His involvement reflects his participation in educational leadership and institutional governance.",
+        "Since 2015, Deepak Raj Bhusal has served on the Board of Directors of Adharsheela College in Kathmandu. His involvement reflects his participation in educational leadership and institutional governance.",
       bullets: [
         "Board Director since 2015",
         "Based in Kathmandu, Nepal",
@@ -50,7 +50,7 @@ export const featuredVenturesData = {
       ],
       image: {
         src: "/images/enlighten_logos/adharsheela.jpg",
-        alt: "Adhrsheela College",
+        alt: "Adharsheela College",
         className: "object-contain",
       },
       href: "https://www.facebook.com/adharsheelacollege/",
