@@ -24,12 +24,6 @@ export function AutoCarousel(props) {
   )
 }
 
-/**
- * Decides whether the looping / auto-play / duplicated behavior
- * should kick in.
- * - Default (false): caller's `loop` / `autoPlay` returned unchanged.
- * - true: effect only enabled when count > EFFECT_MIN_ITEMS.
- */
 function useEffectiveLoop({ count, onlyEffectWhenNeeded, loop, autoPlay }) {
   if (!onlyEffectWhenNeeded) return { loop, autoPlay }
   const hasEnoughItems = count > EFFECT_MIN_ITEMS
@@ -351,9 +345,8 @@ function MarqueeCarousel({
     autoPlay,
   })
 
-  // When effect is gated off (small count), render items once and skip
-  // the wrap logic. Otherwise original triple-copy marquee runs as before.
   const shouldDuplicate = onlyEffectWhenNeeded ? count > EFFECT_MIN_ITEMS : true
+  const isStatic = !shouldDuplicate
 
   const renderItems = shouldDuplicate ? [...items, ...items, ...items] : items
 
@@ -463,9 +456,10 @@ function MarqueeCarousel({
     }, 1200)
   }, [])
 
+  // Only attach wheel listener if draggable is true and we are in a scrolling state
   React.useEffect(() => {
     const node = scrollerRef.current
-    if (!node) return
+    if (!node || !draggable || isStatic) return
 
     const wheelHandler = (e) => {
       if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
@@ -477,20 +471,20 @@ function MarqueeCarousel({
 
     node.addEventListener("wheel", wheelHandler, { passive: false })
     return () => node.removeEventListener("wheel", wheelHandler)
-  }, [registerInteraction])
+  }, [registerInteraction, draggable, isStatic])
 
   if (count === 0) return null
 
-  const maskStyle = showGradientMask
-    ? {
-        WebkitMaskImage: `linear-gradient(to right, transparent 0%, black ${gradientWidth}, black calc(100% - ${gradientWidth}), transparent 100%)`,
-        maskImage: `linear-gradient(to right, transparent 0%, black ${gradientWidth}, black calc(100% - ${gradientWidth}), transparent 100%)`,
-      }
-    : undefined
+  const maskStyle =
+    showGradientMask && !isStatic
+      ? {
+          WebkitMaskImage: `linear-gradient(to right, transparent 0%, black ${gradientWidth}, black calc(100% - ${gradientWidth}), transparent 100%)`,
+          maskImage: `linear-gradient(to right, transparent 0%, black ${gradientWidth}, black calc(100% - ${gradientWidth}), transparent 100%)`,
+        }
+      : undefined
 
-  // ─── FIX 1: skip drag when pointer starts on interactive elements ───
   const handlePointerDown = (e) => {
-    if (!draggable) return
+    if (!draggable || isStatic) return
 
     const interactive = e.target.closest(
       'a, button, input, textarea, select, [role="button"], [data-no-drag]'
@@ -510,8 +504,8 @@ function MarqueeCarousel({
     registerInteraction()
   }
 
-  // ─── FIX 2: raise drag threshold so click-jitter isn't treated as drag ───
   const handlePointerMove = (e) => {
+    if (!draggable || isStatic) return
     const drag = dragStateRef.current
     const node = scrollerRef.current
     if (!drag || !node || drag.pointerId !== e.pointerId) return
@@ -521,8 +515,8 @@ function MarqueeCarousel({
     node.scrollLeft = drag.startScrollLeft - dx
   }
 
-  // ─── FIX 3: only suppress clicks on real drags, reset async ───
   const endDrag = (e) => {
+    if (!draggable || isStatic) return
     const drag = dragStateRef.current
     if (!drag || drag.pointerId !== e.pointerId) return
 
@@ -550,8 +544,13 @@ function MarqueeCarousel({
   return (
     <div
       className={cn("relative flex w-full flex-col", className)}
-      onMouseEnter={() => pauseOnHover && (isHoverPausedRef.current = true)}
-      onMouseLeave={() => pauseOnHover && (isHoverPausedRef.current = false)}
+      // Removed the hover pause triggers when the carousel is static
+      onMouseEnter={() =>
+        !isStatic && pauseOnHover && (isHoverPausedRef.current = true)
+      }
+      onMouseLeave={() =>
+        !isStatic && pauseOnHover && (isHoverPausedRef.current = false)
+      }
     >
       <style>{`
         .auto-carousel-marquee-track::-webkit-scrollbar { display: none; }
@@ -560,16 +559,23 @@ function MarqueeCarousel({
 
       <div
         className={cn(
-          "relative w-full overflow-hidden py-16 lg:py-20",
+          "relative w-full py-16 lg:py-20",
+          // Allow normal scrolling if it's static and small screens might overflow
+          isStatic ? "overflow-x-auto" : "overflow-hidden",
           gradientMaskClassName
         )}
         style={maskStyle}
       >
         <div
           ref={scrollerRef}
+          data-lenis-prevent={draggable && !isStatic ? "" : undefined}
           className={cn(
-            "auto-carousel-marquee-track flex w-full overflow-x-auto overscroll-x-contain",
+            "auto-carousel-marquee-track flex w-full",
+            !isStatic && "overflow-hidden",
+            // Center the items if the carousel is static (1-3 items)
+            isStatic && "min-w-full justify-center",
             draggable &&
+              !isStatic &&
               "cursor-grab touch-pan-x select-none active:cursor-grabbing"
           )}
           style={{ gap: marqueeGap, scrollBehavior: "auto" }}
@@ -594,7 +600,6 @@ function MarqueeCarousel({
     </div>
   )
 }
-
 function DotControls({ count, selected, onSelect }) {
   return (
     <div className="my-4 flex justify-center gap-2">

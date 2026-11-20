@@ -12,6 +12,7 @@ export function MediaCarousel({ items }) {
       autoPlay
       loop
       pauseOnHover
+      draggable={false}
       stopOnInteraction={false}
       showChevronControls={false}
       showGradientMask={false}
