@@ -124,14 +124,15 @@ export function GalleryCard({ item }) {
 
   // default: image
   return (
-    <SafeImage
-      src={src}
-      alt={alt}
-      height={0}
-      width={0}
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      objectFit="contain"
-      className="w-full h-auto rounded-2xl shadow-md"
-    />
+    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted shadow-md">
+      <SafeImage
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        objectFit="contain"
+        className="object-center"
+      />
+    </div>
   );
 }

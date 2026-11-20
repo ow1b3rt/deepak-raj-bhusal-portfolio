@@ -46,27 +46,21 @@ export const metadata: Metadata = {
     siteName: "Deepak Raj Bhusal",
     locale: "en_US",
     url: siteUrl,
-    title:
-      "Deepak Raj Bhusal | Entrepreneur, Social Activist & Philanthropist",
+    title: "Deepak Raj Bhusal | Entrepreneur, Social Activist & Philanthropist",
     description:
       "Official website of Deepak Raj Bhusal — entrepreneur, social activist, and philanthropist from Nepal.",
     images: [{ url: "/images/person/hero.jpg", alt: "Deepak Raj Bhusal" }],
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Deepak Raj Bhusal | Entrepreneur, Social Activist & Philanthropist",
+    title: "Deepak Raj Bhusal | Entrepreneur, Social Activist & Philanthropist",
     description:
       "Official website of Deepak Raj Bhusal — entrepreneur, social activist, and philanthropist from Nepal.",
     images: ["/images/person/hero.jpg"],
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
@@ -84,7 +78,7 @@ export default function RootLayout({
             <div className="">{children}</div>
           </main>
           <Footer />
-          
+
           <ScrollToTop />
         </SmoothScroll>
         <Toaster richColors position="top-right" />

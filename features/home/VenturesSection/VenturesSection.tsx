@@ -78,7 +78,9 @@ function VentureItem({
             <div
               className={cn(
                 "grid grid-cols-1 gap-6 px-5 pb-6 sm:px-8 sm:pb-8 lg:px-10 lg:pb-10",
-                venture.image ? "md:grid-cols-2 md:gap-8 lg:gap-12" : "max-w-3xl"
+                venture.image
+                  ? "md:grid-cols-2 md:gap-8 lg:gap-12"
+                  : "max-w-3xl"
               )}
             >
               <div>
@@ -102,8 +104,14 @@ function VentureItem({
 
                 <Link
                   href={venture.href}
-                  target={venture.href?.startsWith("http") ? "_blank" : undefined}
-                  rel={venture.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                  target={
+                    venture.href?.startsWith("http") ? "_blank" : undefined
+                  }
+                  rel={
+                    venture.href?.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="group mt-6 inline-flex h-10 items-center gap-2 rounded-lg bg-chart-3 px-5 text-primary-foreground hover:bg-chart-3/90 lg:mt-8"
                 >
                   Learn More

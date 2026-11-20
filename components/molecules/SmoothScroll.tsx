@@ -19,7 +19,8 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       gestureOrientation: "vertical",
       smoothWheel: true,
       prevent: (node) => {
-        if (!node || typeof (node as HTMLElement).closest !== "function") return false
+        if (!node || typeof (node as HTMLElement).closest !== "function")
+          return false
         const el = node as HTMLElement
         return (
           el.hasAttribute("data-lenis-prevent") ||

@@ -18,7 +18,7 @@ function getYouTubeId(url = "") {
 }
 
 const thumbClass =
-  "absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+  "absolute inset-0 h-full w-full object-contain object-center transition-transform duration-700 ease-out"
 
 function MediaThumb({ item }) {
   const media = item.media ?? item.image // fallback for old data
@@ -59,7 +59,7 @@ function MediaThumb({ item }) {
       alt={alt}
       fill
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      className="object-contain object-center transition-transform duration-700 ease-out"
     />
   )
 }
